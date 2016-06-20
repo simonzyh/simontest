@@ -69,8 +69,7 @@ public class TestThreadPoll {
          * @see Runnable#run()
          */
 
-        @Override
-        public void run() {
+         public void run() {
 
             System.out.println("线程运行" + Thread.currentThread().getName());
             try {
