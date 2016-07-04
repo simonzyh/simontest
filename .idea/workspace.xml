@@ -1,9 +1,134 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7a7a3812-9c63-4b41-93ef-e0531bb6d35f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/SimpleTest.java" afterPath="$PROJECT_DIR$/src/main/java/SimpleTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    <list default="true" id="7a7a3812-9c63-4b41-93ef-e0531bb6d35f" name="Default" comment="测试提交">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/test/Jdk8test.java" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\.name" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\compiler.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\copyright\profiles_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\encodings.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__aopalliance_aopalliance_1_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__asm_asm_3_3_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__avalon_framework_avalon_framework_4_1_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__cglib_cglib_nodep_2_2_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__com_101tec_zkclient_0_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__com_alibaba_fastjson_1_2_6.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__com_esotericsoftware_kryo_kryo_2_21.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__com_esotericsoftware_minlog_minlog_1_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__com_esotericsoftware_reflectasm_reflectasm_shaded_1_07.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__com_fasterxml_jackson_core_jackson_annotations_2_1_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__com_fasterxml_jackson_core_jackson_core_2_1_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__com_fasterxml_jackson_core_jackson_databind_2_1_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__com_google_guava_guava_13_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__com_google_protobuf_protobuf_java_2_4_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__com_googlecode_disruptor_disruptor_2_10_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__com_sun_jersey_contribs_jersey_apache_client_1_8.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__com_sun_jersey_jersey_client_1_8.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__com_sun_jersey_jersey_core_1_8.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__com_sun_jersey_jersey_json_1_8.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__com_sun_xml_bind_jaxb_impl_2_2_3_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__com_yammer_metrics_metrics_core_2_2_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__commons_beanutils_commons_beanutils_1_8_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__commons_codec_commons_codec_1_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__commons_collections_commons_collections_3_2_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__commons_digester_commons_digester_2_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__commons_fileupload_commons_fileupload_1_3_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__commons_httpclient_commons_httpclient_3_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__commons_io_commons_io_1_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__commons_jexl_commons_jexl_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__commons_lang_commons_lang_2_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__commons_logging_commons_logging_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__commons_pool_commons_pool_1_5_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__dom4j_dom4j_1_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__javax_activation_activation_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__javax_servlet_servlet_api_2_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__javax_xml_bind_jaxb_api_2_2_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__javax_xml_stream_stax_api_1_0_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__jline_jline_0_9_94.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__joda_time_joda_time_2_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__junit_junit_4_8_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__log4j_log4j_1_2_16.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__logkit_logkit_1_0_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__mysql_mysql_connector_java_5_1_15.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__net_sf_dozer_dozer_5_3_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__net_sf_jopt_simple_jopt_simple_3_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__net_sf_jxls_jxls_core_0_9_9.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__net_sf_jxls_jxls_reader_0_9_9.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__net_sf_opencsv_opencsv_2_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_apache_activemq_activemq_jaas_5_7_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_apache_activemq_apollo_broker_1_7.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_apache_activemq_apollo_dto_1_7.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_apache_activemq_apollo_mqtt_1_7.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_apache_activemq_apollo_selector_1_7.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_apache_activemq_apollo_util_1_7.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_apache_commons_commons_lang3_3_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_apache_hadoop_hadoop_auth_2_4_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_apache_httpcomponents_httpclient_4_2_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_apache_httpcomponents_httpcore_4_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_apache_kafka_kafka_2_10_0_8_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_apache_logging_log4j_log4j_api_2_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_apache_logging_log4j_log4j_core_2_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_apache_logging_log4j_log4j_slf4j_impl_2_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_apache_poi_poi_3_9.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_apache_poi_poi_ooxml_3_9.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_apache_poi_poi_ooxml_schemas_3_9.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_apache_storm_storm_core_0_10_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_apache_thrift_libthrift_0_9_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_apache_velocity_velocity_1_6_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_apache_xmlbeans_xmlbeans_2_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_apache_zookeeper_zookeeper_3_3_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_aspectj_aspectjrt_1_6_11.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_aspectj_aspectjweaver_1_5_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_clojure_clojure_1_6_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_codehaus_jackson_jackson_core_asl_1_8_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_codehaus_jackson_jackson_jaxrs_1_8_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_codehaus_jackson_jackson_mapper_asl_1_8_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_codehaus_jackson_jackson_xc_1_8_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_codehaus_jettison_jettison_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_freemarker_freemarker_2_3_20.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_fusesource_hawtbuf_hawtbuf_1_10.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_fusesource_hawtbuf_hawtbuf_proto_1_10.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_fusesource_hawtdispatch_hawtdispatch_1_20.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_fusesource_hawtdispatch_hawtdispatch_scala_1_20.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_fusesource_hawtdispatch_hawtdispatch_transport_1_20.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_fusesource_mqtt_client_mqtt_client_1_10.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_htmlparser_htmlparser_1_6.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_jasypt_jasypt_1_6.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_javassist_javassist_3_18_2_GA.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_jboss_netty_netty_3_2_9_Final.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_ow2_asm_asm_4_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_scala_lang_scala_library_2_10_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_slf4j_jcl_over_slf4j_1_6_6.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_slf4j_log4j_over_slf4j_1_6_6.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_slf4j_slf4j_api_1_7_7.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_springframework_data_spring_data_redis_1_0_3_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_springframework_ldap_spring_ldap_core_1_3_0_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_springframework_spring_aop_3_1_2_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_springframework_spring_asm_3_1_2_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_springframework_spring_beans_3_1_2_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_springframework_spring_context_3_1_2_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_springframework_spring_context_support_3_1_2_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_springframework_spring_core_3_1_2_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_springframework_spring_expression_3_1_2_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_springframework_spring_jdbc_3_1_2_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_springframework_spring_orm_3_1_2_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_springframework_spring_test_3_1_2_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_springframework_spring_tx_3_1_2_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_springframework_spring_web_3_1_2_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_springframework_spring_webmvc_3_1_2_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_xerial_snappy_snappy_java_1_0_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__org_yaml_snakeyaml_1_7.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__oro_oro_2_0_8.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__redis_clients_jedis_2_1_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\libraries\Maven__stax_stax_api_1_0_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\test.iml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\uiDesigner.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\.idea\workspace.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\workspace\simontest\src\main\java\test\test.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
     </list>
     <ignored path="test.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,11 +151,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SimpleTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SimpleTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/SimpleTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.83539605">
-              <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -38,62 +163,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/test/test.java">
+      <file leaf-file-name="Jdk8test.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/test/Jdk8test.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.41949153">
+              <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+              <folding>
+                <element signature="e#565#566#0" expanded="true" />
+                <element signature="e#623#624#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Function.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/util/function/Function.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+              <caret line="74" column="43" selection-start-line="74" selection-start-column="43" selection-end-line="74" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestHttpCliect.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/test/TestHttpCliect.java">
+      <file leaf-file-name="Predicate.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/util/function/Predicate.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestJvm.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/test/TestJvm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DateTools.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/test/DateTools.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Person1.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/test/Person1.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MathUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/test/MathUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="23" column="53" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="53" />
-              <folding />
+              <caret line="100" column="16" selection-start-line="100" selection-start-column="16" selection-end-line="100" selection-end-column="16" />
+              <folding>
+                <element signature="e#2038#2039#0" expanded="true" />
+                <element signature="e#2076#2077#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -102,17 +203,7 @@
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="97" column="21" selection-start-line="97" selection-start-column="21" selection-end-line="97" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HttpClientTool.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/test/HttpClientTool.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+              <caret line="397" column="0" selection-start-line="397" selection-start-column="0" selection-end-line="397" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -148,7 +239,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/storm/local/spouts/WordReader.java" />
         <option value="$PROJECT_DIR$/src/main/java/storm/local/bolts/WordNormalizer.java" />
         <option value="$PROJECT_DIR$/src/main/java/storm/local/TopologyMainR.java" />
         <option value="$PROJECT_DIR$/src/main/java/redis/TestRedis.java" />
@@ -196,9 +286,10 @@
         <option value="$PROJECT_DIR$/src/main/java/javassisttest/Generator.java" />
         <option value="$PROJECT_DIR$/src/main/java/SIdeakeygen.java" />
         <option value="$PROJECT_DIR$/src/main/java/MyTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/test/test.java" />
         <option value="$PROJECT_DIR$/src/main/java/test/TestThreadPoll.java" />
         <option value="$PROJECT_DIR$/src/main/java/SimpleTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/test/test.java" />
+        <option value="$PROJECT_DIR$/src/main/java/test/Jdk8test.java" />
       </list>
     </option>
   </component>
@@ -220,6 +311,16 @@
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="test" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+      </PATH>
       <PATH>
         <PATH_ELEMENT>
           <option name="myItemId" value="" />
@@ -261,6 +362,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -320,17 +423,71 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="simontest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="simontest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Jdk8test.java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="dynamic.classpath" value="false" />
     <property name="recentsLimit" value="5" />
@@ -351,7 +508,7 @@
       <recent name="storm.local.spouts" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SimpleTest">
+  <component name="RunManager" selected="Application.Jdk8test">
     <configuration default="false" name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -360,26 +517,6 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="test.test" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="test" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="Test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="forkjoin.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="forkjoin.Test" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -435,6 +572,26 @@
     <configuration default="false" name="SimpleTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="SimpleTest" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="test" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Jdk8test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="test.Jdk8test" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -720,18 +877,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.test" />
-      <item index="1" class="java.lang.String" itemvalue="Application.Test (1)" />
-      <item index="2" class="java.lang.String" itemvalue="Application.FastJsonTest" />
-      <item index="3" class="java.lang.String" itemvalue="Application.Copier" />
-      <item index="4" class="java.lang.String" itemvalue="Application.SimpleTest" />
+      <item index="1" class="java.lang.String" itemvalue="Application.FastJsonTest" />
+      <item index="2" class="java.lang.String" itemvalue="Application.Copier" />
+      <item index="3" class="java.lang.String" itemvalue="Application.SimpleTest" />
+      <item index="4" class="java.lang.String" itemvalue="Application.Jdk8test" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.SimpleTest" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Copier" />
-        <item index="2" class="java.lang.String" itemvalue="Application.FastJsonTest" />
-        <item index="3" class="java.lang.String" itemvalue="Application.test" />
-        <item index="4" class="java.lang.String" itemvalue="Application.Test (1)" />
+        <item index="0" class="java.lang.String" itemvalue="Application.Jdk8test" />
+        <item index="1" class="java.lang.String" itemvalue="Application.SimpleTest" />
+        <item index="2" class="java.lang.String" itemvalue="Application.Copier" />
+        <item index="3" class="java.lang.String" itemvalue="Application.FastJsonTest" />
+        <item index="4" class="java.lang.String" itemvalue="Application.test" />
       </list>
     </recent_temporary>
   </component>
@@ -819,7 +976,9 @@
       <workItem from="1466398708972" duration="2420000" />
       <workItem from="1466412510380" duration="844000" />
       <workItem from="1466470499567" duration="1265000" />
-      <workItem from="1467253522199" duration="20000" />
+      <workItem from="1467253522199" duration="6717000" />
+      <workItem from="1467367280788" duration="143000" />
+      <workItem from="1467597011883" duration="13792000" />
     </task>
     <task id="LOCAL-00001" summary="测试提交">
       <created>1449558854243</created>
@@ -875,11 +1034,17 @@
       <option name="project" value="LOCAL" />
       <updated>1466402006968</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="测试提交">
+      <created>1467253551731</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1467253551731</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="158859000" />
+    <option name="totallyTimeSpent" value="179491000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1032" extended-state="0" />
@@ -887,28 +1052,28 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45680472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34183082" sideWeight="0.5064447" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.078633405" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.080802605" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1183432" sideWeight="0.4935553" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289941" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15130152" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15509762" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2366864" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26390532" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.556213" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3183432" sideWeight="0.4935553" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2366864" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26390532" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -962,92 +1127,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/test/HttpClientTool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/proxy/jdk/HelloImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_25/src.zip!/java/lang/reflect/InvocationHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.010570824">
-          <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/proxy/jdk/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/proxy/jdk/LogHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/proxy/cglib/BookServiceBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/proxy/cglib/BookServiceFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/proxy/cglib/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/thrift/HelloWorldService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="8.6003065">
-          <caret line="412" column="21" selection-start-line="412" selection-start-column="21" selection-end-line="412" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/proxy/cglib/MyCglibProxy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="7" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_25/src.zip!/java/util/concurrent/ForkJoinPool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.80663">
-          <caret line="1412" column="11" selection-start-line="1412" selection-start-column="11" selection-end-line="1412" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_25/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4473684">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/util/concurrent/RecursiveTask.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1108,14 +1187,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
           <caret line="1337" column="12" selection-start-line="1337" selection-start-column="12" selection-end-line="1337" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38172042">
-          <caret line="2238" column="61" selection-start-line="2238" selection-start-column="58" selection-end-line="2238" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1220,16 +1291,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/javassisttest/Copier.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="47" selection-start-line="54" selection-start-column="47" selection-end-line="54" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/netty/TestServer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1270,7 +1331,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1278,7 +1341,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1091#1092#0" expanded="false" />
+            <element signature="e#1131#1132#0" expanded="false" />
+            <element signature="e#1166#1167#0" expanded="false" />
+            <element signature="e#1201#1202#0" expanded="false" />
+            <element signature="e#1245#1246#0" expanded="false" />
+            <element signature="e#1285#1286#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1286,7 +1357,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1301,7 +1374,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#5169#5170#0" expanded="false" />
+            <element signature="e#5234#5235#0" expanded="false" />
+            <element signature="e#6006#6007#0" expanded="false" />
+            <element signature="e#6070#6071#0" expanded="false" />
+            <element signature="e#8924#8925#0" expanded="false" />
+            <element signature="e#8975#8976#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1309,7 +1390,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="e#140#141#0" expanded="false" />
+            <element signature="e#167#168#0" expanded="false" />
+            <element signature="e#207#208#0" expanded="false" />
+            <element signature="e#239#240#0" expanded="false" />
+            <element signature="e#269#270#0" expanded="false" />
+            <element signature="e#297#298#0" expanded="false" />
+            <element signature="e#337#338#0" expanded="false" />
+            <element signature="e#371#372#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1317,32 +1407,187 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="23" column="53" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="53" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1758#1759#0" expanded="false" />
+            <element signature="e#1832#1833#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/javassisttest/Copier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="111" column="9" selection-start-line="111" selection-start-column="9" selection-end-line="111" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1290#1567#0" expanded="false" />
+            <element signature="e#1566#1567#0" expanded="false" />
+            <element signature="e#2198#2199#0" expanded="false" />
+            <element signature="e#2216#2217#0" expanded="false" />
+            <element signature="e#2253#2254#0" expanded="false" />
+            <element signature="e#2276#2277#0" expanded="false" />
+            <element signature="e#2307#2308#0" expanded="false" />
+            <element signature="e#2328#2329#0" expanded="false" />
+            <element signature="e#2371#2372#0" expanded="false" />
+            <element signature="e#2400#2401#0" expanded="false" />
+            <element signature="e#2488#2489#0" expanded="false" />
+            <element signature="e#2506#2507#0" expanded="false" />
+            <element signature="e#2543#2544#0" expanded="false" />
+            <element signature="e#2566#2567#0" expanded="false" />
+            <element signature="e#2597#2598#0" expanded="false" />
+            <element signature="e#2618#2619#0" expanded="false" />
+            <element signature="e#2661#2662#0" expanded="false" />
+            <element signature="e#2690#2691#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="97" column="21" selection-start-line="97" selection-start-column="21" selection-end-line="97" selection-end-column="21" />
+          <caret line="397" column="0" selection-start-line="397" selection-start-column="0" selection-end-line="397" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/test/test.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.3329208">
+          <caret line="1432" column="19" selection-start-line="1432" selection-start-column="19" selection-end-line="1432" selection-end-column="19" />
+          <folding>
+            <element signature="e#55800#55801#0" expanded="true" />
+            <element signature="e#55844#55845#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SimpleTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.83539605">
-          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/util/stream/Stream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26300147">
+          <caret line="497" column="20" selection-start-line="497" selection-start-column="20" selection-end-line="497" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/util/function/Predicate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="100" column="16" selection-start-line="100" selection-start-column="16" selection-end-line="100" selection-end-column="16" />
+          <folding>
+            <element signature="e#2038#2039#0" expanded="true" />
+            <element signature="e#2076#2077#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/util/function/Function.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="74" column="43" selection-start-line="74" selection-start-column="43" selection-end-line="74" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/util/function/Consumer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33235294">
+          <caret line="48" column="9" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/util/Optional.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.407353">
+          <caret line="49" column="19" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/util/Spliterator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3317757">
+          <caret line="464" column="0" selection-start-line="464" selection-start-column="0" selection-end-line="464" selection-end-column="0" />
+          <folding>
+            <element signature="e#21291#21292#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/fastjson/1.2.6/fastjson-1.2.6.jar!/com/alibaba/fastjson/serializer/FieldSerializer.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36503857">
+          <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/util/Objects.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33193278">
+          <caret line="200" column="24" selection-start-line="200" selection-start-column="24" selection-end-line="200" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/util/Spliterators.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5021008">
+          <caret line="1712" column="51" selection-start-line="1712" selection-start-column="36" selection-end-line="1712" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/util/Collection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38865545">
+          <caret line="561" column="36" selection-start-line="561" selection-start-column="36" selection-end-line="561" selection-end-column="36" />
+          <folding>
+            <element signature="e#26270#26271#0" expanded="true" />
+            <element signature="e#26326#26327#0" expanded="true" />
+            <element signature="e#27751#27752#0" expanded="true" />
+            <element signature="e#27815#27816#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/util/stream/StreamSupport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33193278">
+          <caret line="66" column="32" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5714286">
+          <caret line="730" column="18" selection-start-line="730" selection-start-column="18" selection-end-line="730" selection-end-column="18" />
+          <folding>
+            <element signature="e#33104#33105#0" expanded="true" />
+            <element signature="e#33178#33179#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/test/Jdk8test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41949153">
+          <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+          <folding>
+            <element signature="e#565#566#0" expanded="true" />
+            <element signature="e#623#624#0" expanded="true" />
           </folding>
         </state>
       </provider>

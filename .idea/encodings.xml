@@ -10,7 +10,7 @@
     <file url="file://$PROJECT_DIR$/src/main/java/storm/local/bolts" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/storm/local/spouts" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/test/DateTools.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/test/test.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/test/Jdk8test.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/zookeeper/ZKUtils.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/words.txt" charset="GBK" />
     <file url="PROJECT" charset="UTF-8" />
