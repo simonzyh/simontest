@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * Created by yehua.zyh on 2016/6/17.
  */
-public   class Key {
+public class Key {
     private Class<?> fromClass;
     private Class<?> toClass;
     private String[] ignoreProperties;

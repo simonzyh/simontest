@@ -12,7 +12,6 @@ package test;
 
 import com.alibaba.fastjson.JSON;
 
-import java.io.PrintWriter;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
@@ -35,48 +34,34 @@ public class Jdk8test {
         return Integer.parseInt(s.substring(0, 1));
     }
 
-    public void lambdaTest() {
-        List<String> names = Arrays.asList("peter", "anna", "mike", "xenia");
+    public static void predicateTest() {
+        Predicate<String> predicate = (s) -> s.length() > 0;
+        predicate.test("foo");              // true
+        predicate.negate().test("foo");     // false
+        Predicate<Boolean> nonNull = (s) -> Objects.nonNull(s);
+        Predicate<Boolean> isNull = Objects::isNull;
+        Predicate<String> isEmpty = String::isEmpty;
+        Predicate<String> isNotEmpty = isEmpty.negate();
+        System.out.println(predicate.test("123") + " " + predicate.negate().test("123"));
 
-        Collections.sort(names, (String a, String b) -> {
-            return b.compareTo(a);
-        });
 
-        Collections.sort(names, (String a, String b) -> b.compareTo(a));
-
-        Converter<String, Integer> converter = (from) -> Integer.valueOf(from);
-        Converter<String, Integer> converter1 = Integer::valueOf;
-        Converter<String, Integer> converter2 = Jdk8test::startsWith;
     }
 
-   public static void predicateTest(){
-       Predicate<String> predicate = (s) -> s.length() > 0;
-       predicate.test("foo");              // true
-       predicate.negate().test("foo");     // false
-       Predicate<Boolean> nonNull = (s)->Objects.nonNull(s);
-       Predicate<Boolean> isNull = Objects::isNull;
-       Predicate<String> isEmpty = String::isEmpty;
-       Predicate<String> isNotEmpty = isEmpty.negate();
-       System.out.println(predicate.test("123")+" "+predicate.negate().test("123"));
+    public static void functionTest() {
+        Function<String, Integer> toInteger = Integer::valueOf;
+        Function<String, String> backToString = toInteger.andThen(String::valueOf);
+        backToString.apply("123");     // "123"
+    }
 
-
-   }
-
-
-   public static void functionTest(){
-       Function<String, Integer> toInteger = Integer::valueOf;
-       Function<String, String> backToString = toInteger.andThen(String::valueOf);
-       backToString.apply("123");     // "123"
-   }
-
-    public static void optionalTest(){
+    public static void optionalTest() {
         Optional<String> optional = Optional.of("bam");
         optional.isPresent();           // true
         optional.get();                 // "bam"
         optional.orElse("fallback");    // "bam"
         optional.ifPresent((s) -> System.out.println(s.charAt(0)));     // "b"
     }
-    public static void streamTest(){
+
+    public static void streamTest() {
         List<String> stringCollection = new ArrayList<>();
         stringCollection.add("ddd2");
         stringCollection.add("aaa2");
@@ -89,40 +74,56 @@ public class Jdk8test {
         stringCollection
                 .stream()
                 .filter((s) -> s.startsWith("a"))
-                .forEach(  System.out::println);
-        stringCollection.stream().map((s)->  s+"1");
+                .forEach(System.out::println);
+        stringCollection.stream().map((s) -> s + "1");
 
     }
-    public static void  parallelStreamTest(){
+
+    public static void parallelStreamTest() {
         try {
-        int max = 2;
-        List<String> values = new ArrayList<>(max);
-         for (int i = 0; i < max; i++) {
-            UUID uuid = UUID.randomUUID();
-            values.add(uuid.toString());
-         }
-             System.out.println(JSON.toJSONString(            values.spliterator()));
+            int max = 2;
+            List<String> values = new ArrayList<>(max);
+            for (int i = 0; i < max; i++) {
+                UUID uuid = UUID.randomUUID();
+                values.add(uuid.toString());
+            }
+            System.out.println(JSON.toJSONString(values.spliterator()));
 
-        long t0 = System.nanoTime();
-        long count = values.stream().sorted().count();
-        System.out.println(count);
-        long t1 = System.nanoTime();
-        long millis = TimeUnit.NANOSECONDS.toMillis(t1 - t0);
-        System.out.println(String.format("sequential sort took: %d ms", millis));
+            long t0 = System.nanoTime();
+            long count = values.stream().sorted().count();
+            System.out.println(count);
+            long t1 = System.nanoTime();
+            long millis = TimeUnit.NANOSECONDS.toMillis(t1 - t0);
+            System.out.println(String.format("sequential sort took: %d ms", millis));
 
-        long t2 = System.nanoTime();
-        long count1 = values.parallelStream().sorted().count();
-        System.out.println(count1);
-        long t3 = System.nanoTime();
-        long millis1 = TimeUnit.NANOSECONDS.toMillis(t3 - t2);
-        System.out.println(String.format("parallel sort took: %d ms", millis1));
+            long t2 = System.nanoTime();
+            long count1 = values.parallelStream().sorted().count();
+            System.out.println(count1);
+            long t3 = System.nanoTime();
+            long millis1 = TimeUnit.NANOSECONDS.toMillis(t3 - t2);
+            System.out.println(String.format("parallel sort took: %d ms", millis1));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         //streamTest();
-       // predicateTest();
+        // predicateTest();
         parallelStreamTest();
+    }
+
+    public void lambdaTest() {
+        List<String> names = Arrays.asList("peter", "anna", "mike", "xenia");
+
+        Collections.sort(names, (String a, String b) -> {
+            return b.compareTo(a);
+        });
+
+        Collections.sort(names, (String a, String b) -> b.compareTo(a));
+
+        Converter<String, Integer> converter = (from) -> Integer.valueOf(from);
+        Converter<String, Integer> converter1 = Integer::valueOf;
+        Converter<String, Integer> converter2 = Jdk8test::startsWith;
     }
 }

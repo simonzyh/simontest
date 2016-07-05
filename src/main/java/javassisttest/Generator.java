@@ -18,7 +18,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * Created by yehua.zyh on 2016/6/17.
  */
-public   class Generator {
+public class Generator {
     private static final AtomicInteger classNameIndex = new AtomicInteger(1000);
     private static final Logger LOG = LoggerFactory.getLogger(Generator.class);
     private static final String packageName = Copier.class.getPackage().getName();
@@ -32,6 +32,31 @@ public   class Generator {
     private String beginSource;
     private List<String> propSources = Lists.newArrayList();
     private String endSources;
+
+    /**
+     * 是否为包装类
+     */
+    public static boolean isWrapClass(Class<?> clazz) {
+        try {
+            return ((Class) clazz.getField("TYPE").get(null)).isPrimitive();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * source对象类型是否是target对象类型的包装类
+     */
+    public static boolean isWrapClass(Class source, Class target) {
+        if (!target.isPrimitive()) {
+            return false;
+        }
+        try {
+            return source.getField("TYPE").get(null) == target;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 
     public void setSource(Class source) {
         this.source = source;
@@ -101,10 +126,10 @@ public   class Generator {
                     }
                 }
             }
-           // warnCantConvert(setter, getter);
+            // warnCantConvert(setter, getter);
 
         }
-        System.out.println("propSources="+propSources);
+        System.out.println("propSources=" + propSources);
 
     }
 
@@ -130,7 +155,7 @@ public   class Generator {
                 setter.getName() +
                 "(" +
                 setter.getPropertyType() +
-                    ").");
+                ").");
 
     }
 
@@ -178,7 +203,7 @@ public   class Generator {
         }
         builder.append(endSources);
         String source = builder.toString();
-        System.out.println("source="+source);
+        System.out.println("source=" + source);
         ClassPool pool = ClassPool.getDefault();
         /**
          * The default ClassPool returned by a static method ClassPool.getDefault() searches the same path that
@@ -210,7 +235,8 @@ public   class Generator {
         ClassLoader cl = null;
         try {
             cl = Thread.currentThread().getContextClassLoader();
-        } catch (Throwable ignored) {}
+        } catch (Throwable ignored) {
+        }
         if (cl == null) {
             cl = getClass().getClassLoader();
         }
@@ -223,31 +249,6 @@ public   class Generator {
             return beanInfo.getPropertyDescriptors();
         } catch (IntrospectionException e) {
             throw new RuntimeException(e);
-        }
-    }
-
-    /**
-     * 是否为包装类
-     */
-    public static boolean isWrapClass(Class<?> clazz) {
-        try {
-            return ((Class) clazz.getField("TYPE").get(null)).isPrimitive();
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    /**
-     * source对象类型是否是target对象类型的包装类
-     */
-    public static boolean isWrapClass(Class source, Class target) {
-        if (!target.isPrimitive()) {
-            return false;
-        }
-        try {
-            return source.getField("TYPE").get(null) == target;
-        } catch (Exception e) {
-            return false;
         }
     }
 }

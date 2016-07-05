@@ -13,8 +13,8 @@ public class TestJvm {
 
     public static void main(String[] args) {
         List<TestA> cache = new ArrayList<TestA>();
-        System.out.println(java.lang.Runtime.getRuntime().maxMemory()/1024
-                + " " + java.lang.Runtime.getRuntime().totalMemory()/1024);
+        System.out.println(java.lang.Runtime.getRuntime().maxMemory() / 1024
+                + " " + java.lang.Runtime.getRuntime().totalMemory() / 1024);
 
         int i = 0;
         while (true) {
@@ -26,8 +26,8 @@ public class TestJvm {
             }
 
             cache.add(new TestA("ABCDFGQWQWQWQWQWQWQWABCDFGQWQWQWQWQWQWQWABCDFGQWQWQWQWQWQWQWABCDFGQWQWQWQWQWQWQWABCDFGQWQWQWQWQWQWQWABCDFGQWQWQWQWQWQWQWABCDFGQWQWQWQWQWQWQWABCDFGQWQWQWQWQWQWQWABCDFGQWQWQWQWQWQWQWABCDFGQWQWQWQWQWQWQWABCDFGQWQWQWQWQWQWQWABCDFGQWQWQWQWQWQWQW" + (i++)));
-            if(i%5000==0) {
-                System.out.println(i+" "+cache.size());
+            if (i % 5000 == 0) {
+                System.out.println(i + " " + cache.size());
             }
         }
 

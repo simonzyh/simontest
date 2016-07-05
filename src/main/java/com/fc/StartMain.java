@@ -35,9 +35,9 @@ public class StartMain {
      */
     public static void main(String[] args) throws IOException, Exception {
 
-         DateLoad.load();
+        DateLoad.load();
         Task1.run();
-         Task2.run();
+        Task2.run();
         //Task3.run();
 
 

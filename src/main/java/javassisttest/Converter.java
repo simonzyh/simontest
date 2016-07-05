@@ -3,10 +3,17 @@ package javassisttest;
 /**
  * Created by yehua.zyh on 2016/6/17.
  */
-public   class Converter {
+public class Converter {
     private String sourceName;
     private String readMethodName;
     private Class<?> targetType;
+
+    public Converter(Class<?> targetType, String sourceName, String readMethodName) {
+        this.targetType = notNull(targetType);
+        this.sourceName = notNull(sourceName);
+        this.readMethodName = notNull(readMethodName);
+    }
+
     private static <T> T notNull(T obj, String message) {
         if (obj == null) {
             throw new NullPointerException(message);
@@ -16,11 +23,6 @@ public   class Converter {
 
     private static <T> T notNull(T obj) {
         return notNull(obj, null);
-    }
-    public Converter(Class<?> targetType, String sourceName, String readMethodName) {
-        this.targetType = notNull(targetType);
-        this.sourceName = notNull(sourceName);
-        this.readMethodName = notNull(readMethodName);
     }
 
     public String convert() {

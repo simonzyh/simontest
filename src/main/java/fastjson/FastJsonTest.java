@@ -17,14 +17,14 @@ public class FastJsonTest {
 
 
     public static void main(String[] args) throws IOException {
-        Integer ii=null;
-        System.out.println(2==ii);
-         Map<String,Long> map=new HashMap<String,Long>();
-        Long l11=1010012200785506277L;
+        Integer ii = null;
+        System.out.println(2 == ii);
+        Map<String, Long> map = new HashMap<String, Long>();
+        Long l11 = 1010012200785506277L;
 
-        map.put("long",l11);
-        String s1=JSON.toJSONString(map);
-        System.out.println(s1+" "+JSON.parseObject(s1,Map.class));
+        map.put("long", l11);
+        String s1 = JSON.toJSONString(map);
+        System.out.println(s1 + " " + JSON.parseObject(s1, Map.class));
         Group group = new Group();
         group.setId(0);
         group.setName("admin");

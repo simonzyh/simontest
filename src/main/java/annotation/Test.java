@@ -7,12 +7,12 @@ import java.lang.annotation.Annotation;
  */
 public class Test {
 
-public static void main(String[] args){
-    SubClass sub=new SubClass();
-    sub.isMtop();
-    Annotation annotation = SubClass.class.getAnnotation(MtopApiAnnotation.class);
-         System.out.println(  annotation);
+    public static void main(String[] args) {
+        SubClass sub = new SubClass();
+        sub.isMtop();
+        Annotation annotation = SubClass.class.getAnnotation(MtopApiAnnotation.class);
+        System.out.println(annotation);
 
 
-}
+    }
 }
