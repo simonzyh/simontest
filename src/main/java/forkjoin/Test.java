@@ -10,8 +10,6 @@ import java.util.concurrent.Future;
 public class Test {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        System.out.println("https://actmanager.tmall.com/subject/preview.do?channel$1&".replaceAll("\\$", "="));
-        System.out.println("https://actmanager.tmall.com/subject/preview.do?channel$1&".replace("$", "="));
 
         ForkJoinPool forkJoinPool = new ForkJoinPool(50);
 
