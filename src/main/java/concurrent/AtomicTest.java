@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * Created by yehua.zyh on 2015/11/11.
  */
-public class Test {
+public class AtomicTest {
     public static void main(String[] args) {
         AtomicInteger ai = new AtomicInteger();
         System.out.println(ai);
@@ -14,7 +14,6 @@ public class Test {
         System.out.println(ai);
 
         AtomicBoolean ab = new AtomicBoolean();
-
 
     }
 }
