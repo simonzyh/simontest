@@ -48,7 +48,7 @@ public class UnsafeTest {
         try (FileChannel fc = new RandomAccessFile(counters, "rw").getChannel()) {
             MappedByteBuffer mbb = fc.map(FileChannel.MapMode.READ_WRITE, 0, 1024);
             long address = ((DirectBuffer) mbb).address();
-            System.out.println("address="+address);
+            System.out.println("address=" + address);
             for (int i = -1; i < runs; i++) {
                 for (; ; ) {
                     long value = UNSAFE.getLongVolatile(null, address);

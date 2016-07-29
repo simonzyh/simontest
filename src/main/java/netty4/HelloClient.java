@@ -39,10 +39,10 @@ public class HelloClient {
                 if (line == null) {
                     continue;
                 }
-                if("exit".equals(line)){
+                if ("exit".equals(line)) {
                     ch.close();
                     break;
-                 }
+                }
                 /*
                  * 向服务端发送在控制台输入的文本 并用"\r\n"结尾
                  * 之所以用\r\n结尾 是因为我们在handler中添加了 DelimiterBasedFrameDecoder 帧解码。

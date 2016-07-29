@@ -679,7 +679,7 @@ public class DateTools {
         return beginTime;
     }
 
-    public static void sleep(Long mm){
+    public static void sleep(Long mm) {
         try {
             Thread.currentThread().sleep(mm);
         } catch (InterruptedException e) {
