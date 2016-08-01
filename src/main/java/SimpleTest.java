@@ -56,7 +56,20 @@ public class SimpleTest {
     public static void main(String[] args) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(DateTools.parse("2016-01-01", "yyyy-MM-dd"));
-        System.out.println(cal.get(Calendar.MONTH));
+        List<String> strArr=new ArrayList<String>();
+        strArr.add("725677994");
+        strArr.add("1955345225");
+
+        strArr.add("1129326215");
+        strArr.add("一");
+        strArr.add("１");
+         strArr.add("①");
+        strArr.add("⑴");
+        strArr.add("⒈");
+        strArr.add("Ⅰ");
+
+        for(String str:strArr)
+        System.out.println(str+" isDigits="+NumberUtils.isDigits(str)+" isNumber="+NumberUtils.isNumber(str));
     }
 
     static class testA {
