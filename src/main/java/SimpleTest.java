@@ -1,11 +1,15 @@
 import au.com.bytecode.opencsv.CSVReader;
+import com.google.common.collect.Lists;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 import test.DateTools;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.*;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -53,25 +57,64 @@ public class SimpleTest {
         }
     }
 
-    public static void main(String[] args) {
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(DateTools.parse("2016-01-01", "yyyy-MM-dd"));
-        List<String> strArr=new ArrayList<String>();
-        strArr.add("725677994");
-        strArr.add("1955345225");
+    public static void main(String[] args) throws  Exception {
 
-        strArr.add("1129326215");
-        strArr.add("一");
-        strArr.add("１");
-         strArr.add("①");
-        strArr.add("⑴");
-        strArr.add("⒈");
-        strArr.add("Ⅰ");
+String urlStr="https://img.alicdn.com/imgextra/i2/700459267/TB21_oFrVXXXXavXXXXXXXXXXXX_!!700459267.jpg";
+        BufferedImage sourceImg =null;
+        int imgSize=0;
 
-        for(String str:strArr)
-        System.out.println(str+" isDigits="+NumberUtils.isDigits(str)+" isNumber="+NumberUtils.isNumber(str));
+            URL url =   new URL(urlStr);
+            URLConnection conn = url.openConnection();
+            imgSize=conn.getContentLength()/1024;
+            System.out.println(imgSize);
+        URL url1 =   new URL(urlStr);
+
+        sourceImg= ImageIO.read(conn.getInputStream());
+        System.out.println(sourceImg);
+        System.out.println(getNetworkImgSize(urlStr));
+        System.out.println(getNetworkImgWidthHeight(urlStr));
+    }
+    public static List<Integer> getNetworkImgWidthHeight(String imgUrl) throws IOException {
+        InputStream is = null;
+        try {
+            is = new URL(imgUrl).openStream();
+
+            BufferedImage sourceImg = ImageIO.read(is);
+
+            return Lists.newArrayList(sourceImg.getWidth(), sourceImg.getHeight());
+        } catch (IOException e) {
+            throw e;
+        } finally {
+            if (is != null) {
+                is.close();
+            }
+        }
+
+
     }
 
+    public static int getNetworkImgSize(String imgUrl) throws IOException {
+
+        URLConnection conn = null;
+
+        try {
+            URL url = new URL(imgUrl);
+            conn = url.openConnection();
+
+            return conn.getContentLength();
+        } catch (IOException e) {
+            throw e;
+        } finally {
+            if (conn != null) {
+                try {
+                    conn.getInputStream().close();
+                } catch (IOException e) {
+e.printStackTrace();                }
+            }
+        }
+
+
+    }
     static class testA {
         String name;
     }
