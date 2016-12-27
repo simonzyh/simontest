@@ -13,6 +13,7 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.regex.Pattern;
 
 /**
  * Created by yehua.zyh on 2016/6/20.
@@ -59,20 +60,8 @@ public class SimpleTest {
 
     public static void main(String[] args) throws  Exception {
 
-String urlStr="https://img.alicdn.com/imgextra/i2/700459267/TB21_oFrVXXXXavXXXXXXXXXXXX_!!700459267.jpg";
-        BufferedImage sourceImg =null;
-        int imgSize=0;
-
-            URL url =   new URL(urlStr);
-            URLConnection conn = url.openConnection();
-            imgSize=conn.getContentLength()/1024;
-            System.out.println(imgSize);
-        URL url1 =   new URL(urlStr);
-
-        sourceImg= ImageIO.read(conn.getInputStream());
-        System.out.println(sourceImg);
-        System.out.println(getNetworkImgSize(urlStr));
-        System.out.println(getNetworkImgWidthHeight(urlStr));
+        Pattern pattern=Pattern.compile("((http|https)(://img.alicdn.com).*\\.(jpg|gif|png))");
+        System.out.println(pattern.matcher("http://img.a1licdn.com/imgextra/i4/1129326215/TB2AUMNrVXXXXcnXpXXXXXXXXXX_!!1129326215.jpg").matches());
     }
     public static List<Integer> getNetworkImgWidthHeight(String imgUrl) throws IOException {
         InputStream is = null;

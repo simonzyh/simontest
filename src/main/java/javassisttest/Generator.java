@@ -1,5 +1,6 @@
 package javassisttest;
 
+import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import javassist.*;
@@ -29,9 +30,7 @@ public class Generator {
     private Class target;
     private String[] ignoreProperties;
 
-    private String beginSource;
-    private List<String> propSources = Lists.newArrayList();
-    private String endSources;
+
 
     /**
      * 是否为包装类
@@ -74,22 +73,23 @@ public class Generator {
         this.ignoreProperties = ignoreProperties;
     }
 
-    private void generateBegin() {
+    private String generateBegin(String methodName) {
         // 生成方法签名public void copy(Object s1, Object t1) {
-        beginSource = "public void copy(Object " + SOURCE + "1, Object " + TARGET + "1) {\n";
+        String beginSource = "public void "+methodName+"(Object " + SOURCE + "1, Object " + TARGET + "1) {\n";
         // 强制转换源对象
         String convertSource = "\t" + source.getName() + " " + SOURCE + " = " + "(" + source.getName() + ")" + SOURCE + "1;\n";
         // 强制转换目标对象
         String convertTarget = "\t" + target.getName() + " " + TARGET + " = " + "(" + target.getName() + ")" + TARGET + "1;\n";
         beginSource += convertSource + convertTarget;
-        System.out.println(beginSource);
+        return beginSource;
     }
 
-    private void generateEnd() {
-        endSources = "}";
+    private String  generateEnd() {
+        return  "}\n";
     }
 
-    private void generateBody() {
+    private List<String> generateBody(boolean isCheckNull) {
+        List<String> propSources=Lists.newArrayList();
         PropertyDescriptor[] getters = getPropertyDescriptors(source);
         PropertyDescriptor[] setters = getPropertyDescriptors(target);
 
@@ -108,7 +108,7 @@ public class Generator {
             String readMethodName = readMethod.getName();
             String writerMethodName = writeMethod.getName();
             if (compatible(getter, setter)) {
-                propSources.add(genPropertySource(writerMethodName, SOURCE + "." + readMethodName + "()"));
+                propSources.add(genPropertySource(writerMethodName, SOURCE + "." + readMethodName + "()",isCheckNull));
             } else {
                 // 是否是包装类转换
                 if (compatibleWrapper(getter, setter)) {
@@ -116,29 +116,33 @@ public class Generator {
                     String f = convert.convert();
                     if (f != null) {
                         if (isWrapClass(getter.getPropertyType())) {
-                            String source = genCheckWrapperIsNotNullSource(readMethod.getName());
-                            source += "\t" + genPropertySource(writerMethodName, f);
+                            String source  = genPropertySource(writerMethodName, f, true);
                             propSources.add(source);
                         } else {
-                            propSources.add(genPropertySource(writerMethodName, f));
+                            propSources.add(genPropertySource(writerMethodName, f,false));
                         }
                         continue;
                     }
                 }
+                warnCantConvert(setter, getter);
             }
-            // warnCantConvert(setter, getter);
-
         }
-        System.out.println("propSources=" + propSources);
-
+        return propSources;
     }
 
     private String genCheckWrapperIsNotNullSource(String readName) {
         return "\tif(" + SOURCE + "." + readName + "() != null)\n";
     }
 
-    private String genPropertySource(String writerMethodName, String getterSource) {
-        return "\t" + TARGET + "." + writerMethodName + "(" + getterSource + ");\n";
+    private String genPropertySource(String writerMethodName, String getterSource,boolean isCheckNull) {
+        String setMethod="\t" + TARGET + "." + writerMethodName + "(" + getterSource + ");\n";
+        if(!isCheckNull) {
+            return setMethod;
+        }else
+        {
+            return "\tif("  +getterSource + " != null)\n"+"{"+setMethod+"};\n";
+
+        }
     }
 
     private void warnCantConvert(PropertyDescriptor setter, PropertyDescriptor getter) {
@@ -192,19 +196,26 @@ public class Generator {
     }
 
     public Class<Copy> generate() {
-        generateBegin();
-        generateBody();
-        generateEnd();
+        StringBuilder copybuilder = new StringBuilder();
 
-        StringBuilder builder = new StringBuilder();
-        builder.append(beginSource);
-        for (String ps : propSources) {
-            builder.append(ps);
+        //生产COPY代码
+        copybuilder.append(generateBegin("copy"));
+        for (String ps : generateBody(false)) {
+            copybuilder.append(ps);
         }
-        builder.append(endSources);
-        String source = builder.toString();
-        System.out.println("source=" + source);
-        ClassPool pool = ClassPool.getDefault();
+
+        copybuilder.append(generateEnd());
+        //生产merge代码
+        StringBuilder mergebuilder = new StringBuilder();
+
+        mergebuilder.append(generateBegin("merge"));
+        for (String ps : generateBody(true)) {
+            mergebuilder.append(ps);
+        }        generateEnd();
+
+        mergebuilder.append(generateEnd());
+
+         ClassPool pool = ClassPool.getDefault();
         /**
          * The default ClassPool returned by a static method ClassPool.getDefault() searches the same path that
          * the underlying JVM (Java virtual machine) has. If a program is running on a web application server
@@ -218,8 +229,10 @@ public class Generator {
 
         try {
             cc.addInterface(pool.get(Copy.class.getName()));
-            CtMethod m = CtNewMethod.make(source, cc);
-            cc.addMethod(m);
+            CtMethod copym = CtNewMethod.make(copybuilder.toString(), cc);
+            cc.addMethod(copym);
+            CtMethod mergem = CtNewMethod.make(mergebuilder.toString(), cc);
+            cc.addMethod(mergem);
             // noinspection unchecked
             return cc.toClass(getDefaultClassLoader(), null);
         } catch (Exception e) {

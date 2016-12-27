@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
 import java.math.RoundingMode;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 数学运算
@@ -91,6 +93,13 @@ public class MathUtil {
     }
 
     public static void main(String[] args) {
+        List<Long> list=new ArrayList<Long>();
+        list.add(123L);
+        long l=123;
+        boolean b=true;
+        boolean b1=false;
+        b1&=b;
+        System.out.println(b1);
         System.out.println(MathUtil.multiply(8, MathUtil.subtract(1, 0.8)).setScale(0, BigDecimal.ROUND_UP));
     }
 }

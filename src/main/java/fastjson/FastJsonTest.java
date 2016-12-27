@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,6 +18,7 @@ public class FastJsonTest {
 
 
     public static void main(String[] args) throws IOException {
+          System.out.println(URLEncoder.encode("pageId=1&supplierToken=50a1b56f5fa94126a7648ebc1d440271","UTF-8"));
         Integer ii = null;
         System.out.println(2 == ii);
         Map<String, Long> map = new HashMap<String, Long>();

@@ -10,4 +10,5 @@ package javassisttest;
 
 public interface Copy {
     void copy(Object source, Object target);
+    void merge(Object source, Object target);
 }

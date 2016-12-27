@@ -49,11 +49,42 @@ public class Copier {
             copier.copy(from, to);
             return to;
         } catch (ExecutionException e) {
+            e.getMessage();
             throw new RuntimeException(e);
         }
     }
 
+    /**
+     * 对象属性拷贝
+     *
+     * @param from             源对象
+     * @param to               目标对象
+     * @param ignoreProperties 忽略属性值
+     * @param <F>              源对象类型
+     * @param <T>              目标对象类型
+     * @return 目标对象，同第二个参数to
+     */
+    public static <F, T> T merge(final F from, final T to, final String... ignoreProperties) {
+        Key key = getKey(from, to, ignoreProperties);
+        try {
+            Copy copier = copierCache.get(key, new Callable<Copy>() {
 
+
+                public Copy call() throws Exception {
+                    Generator gen = new Generator();
+                    gen.setSource(from.getClass());
+                    gen.setTarget(to.getClass());
+                    gen.setIgnoreProperties(ignoreProperties);
+                    return gen.generate().newInstance();
+                }
+            });
+            copier.merge(from, to);
+            return to;
+        } catch (ExecutionException e) {
+            e.getMessage();
+            throw new RuntimeException(e);
+        }
+    }
     private static Key getKey(Object from, Object to, String[] ignoreProperties) {
         Class<?> fromClass = from.getClass();
         Class<?> toClass = to.getClass();
@@ -64,10 +95,15 @@ public class Copier {
     public static void main(String[] args) {
         c1 t1 = new c1();
         t1.setAddress("address");
-        t1.setName("name");
-        c2 t2 = new c2();
+         c2 t2 = new c2();
+        t2.setName("name2");
         Copier.copy(t1, t2);
         System.out.println(JSON.toJSONString(t2));
+
+        c2 t3 = new c2();
+        t3.setName("name3");
+        Copier.merge(t1, t3);
+        System.out.println(JSON.toJSONString(t3));
     }
 
 

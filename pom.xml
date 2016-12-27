@@ -66,6 +66,16 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.taobao.hsf</groupId>
+            <artifactId>hsfunit</artifactId>
+            <version>1.0.6-SNAPSHOT</version>
+          </dependency>
+        <dependency>
+            <groupId>com.taobao.beehive.scenes</groupId>
+            <artifactId>scenes-client</artifactId>
+            <version>1.0.17</version>
+        </dependency>
+        <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
             <version>4.0.0.Final</version>
