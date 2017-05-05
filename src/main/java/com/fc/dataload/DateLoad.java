@@ -41,7 +41,7 @@ public class DateLoad {
     public static void load() throws IOException, Exception {
         List<Ball> list = new ArrayList<Ball>();
 
-        list.addAll(Tools.parse("http://baidu.lecai.com/lottery/draw/list/50?type=range&start=2003011&end=2017012"));
+        list.addAll(Tools.parse("http://baidu.lecai.com/lottery/draw/list/50?type=range&start=2003011&end=2019012"));
 
 
         Collections.sort(list, new Comparator<Ball>() {

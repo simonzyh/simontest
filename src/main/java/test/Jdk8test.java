@@ -11,7 +11,9 @@
 package test;
 
 import com.alibaba.fastjson.JSON;
+import com.google.common.collect.Maps;
 
+import java.io.*;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
@@ -50,7 +52,7 @@ public class Jdk8test {
     public static void functionTest() {
         Function<String, Integer> toInteger = Integer::valueOf;
         Function<String, String> backToString = toInteger.andThen(String::valueOf);
-        backToString.apply("123");     // "123"
+        System.out.println(backToString.apply("123"));     // "123"
     }
 
     public static void optionalTest() {
@@ -76,7 +78,11 @@ public class Jdk8test {
                 .filter((s) -> s.startsWith("a"))
                 .forEach(System.out::println);
         stringCollection.stream().map((s) -> s + "1");
+       Map map=Maps.uniqueIndex(stringCollection, input -> {
+           return input.substring(1);
+       });
 
+         System.out.println(map);
     }
 
     public static void parallelStreamTest() {
@@ -87,7 +93,7 @@ public class Jdk8test {
                 UUID uuid = UUID.randomUUID();
                 values.add(uuid.toString());
             }
-            System.out.println(JSON.toJSONString(values.spliterator()));
+         //   System.out.println(JSON.toJSONString(values.spliterator()));
 
             long t0 = System.nanoTime();
             long count = values.stream().sorted().count();
@@ -107,10 +113,31 @@ public class Jdk8test {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws  Exception {
         //streamTest();
         // predicateTest();
-        parallelStreamTest();
+        //functionTest();
+        //streamTest();
+        BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(new File("d:\\bmd.txt"))));
+        List<String> old=new ArrayList<>();
+        String readline=null;
+        while((readline=br.readLine())!=null){
+            old.add(readline);
+        }
+
+        Set<String> set=new HashSet<>();
+        BufferedReader br1=new BufferedReader(new InputStreamReader(new FileInputStream(new File("d:\\itemList.txt"))));
+         while((readline=br1.readLine())!=null){
+             if(!old.contains(readline)) {
+                 set.add(readline);
+             }
+        }
+
+        PrintWriter pw=new PrintWriter("d:\\newitem.txt");
+        for(String str:set){
+            pw.println(str);
+        }
+        pw.flush();
     }
 
     public void lambdaTest() {

@@ -1,9 +1,6 @@
 package concurrent;
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.FutureTask;
+import java.util.concurrent.*;
 
 /**
  * Created by yehua.zyh on 2016/7/4.
@@ -17,9 +14,13 @@ public class FutureTest {
             public String call() throws Exception {
                 Thread.sleep(10000);
                 System.out.println("run call");
+                if(1==1){
+                    throw new Exception("test");
+                }
                 return "future hello world";
             }
         });
+         CountDownLatch c;
         System.out.println(futureTask.isDone());
         futureTask.run();
         System.out.println(futureTask.isDone());
