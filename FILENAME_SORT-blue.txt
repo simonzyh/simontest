@@ -1,0 +1,16 @@
+{"ball":7,"balltype":"blue","num":43,"per":"0.086","total":500}
+{"ball":12,"balltype":"blue","num":39,"per":"0.078","total":500}
+{"ball":4,"balltype":"blue","num":35,"per":"0.07","total":500}
+{"ball":15,"balltype":"blue","num":35,"per":"0.07","total":500}
+{"ball":1,"balltype":"blue","num":34,"per":"0.068","total":500}
+{"ball":10,"balltype":"blue","num":33,"per":"0.066","total":500}
+{"ball":13,"balltype":"blue","num":33,"per":"0.066","total":500}
+{"ball":14,"balltype":"blue","num":32,"per":"0.064","total":500}
+{"ball":16,"balltype":"blue","num":32,"per":"0.064","total":500}
+{"ball":8,"balltype":"blue","num":31,"per":"0.062","total":500}
+{"ball":9,"balltype":"blue","num":29,"per":"0.058","total":500}
+{"ball":6,"balltype":"blue","num":26,"per":"0.052","total":500}
+{"ball":11,"balltype":"blue","num":26,"per":"0.052","total":500}
+{"ball":2,"balltype":"blue","num":25,"per":"0.05","total":500}
+{"ball":5,"balltype":"blue","num":25,"per":"0.05","total":500}
+{"ball":3,"balltype":"blue","num":22,"per":"0.044","total":500}

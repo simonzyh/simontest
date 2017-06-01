@@ -1,0 +1,5 @@
+{"ball":3,"num":26}
+{"ball":6,"num":21}
+{"ball":5,"num":4}
+{"ball":1,"num":3}
+{"ball":2,"num":1}

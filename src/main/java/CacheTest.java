@@ -1,3 +1,5 @@
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
@@ -8,6 +10,7 @@ import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.google.common.cache.RemovalListener;
 import com.google.common.cache.RemovalNotification;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 /**
  * Created by yehua.zyh on 2017/5/4.
@@ -38,24 +41,27 @@ public class CacheTest {
 
             System.out.println("1" +"-"+ cache.get("1"));
 
-        Thread.sleep(10000L);
-        for(int i=0;i<10;i++) {
-            new Thread(){
+                     for(int i=0;i<3;i++) {
+                         new Thread(){
 
-                @Override
-                public void run() {
-                    try {
-                      System.out.println("1"+"-" + cache.get("1"));
-                    } catch (ExecutionException e) {
-                        e.printStackTrace();
+                             @Override
+                             public  void run(){
+                                 try {
+                                     while(true){
+                                         int j=0;
+                                     }
+
+                                 } catch (Exception e) {
+                                     e.printStackTrace();
+                                 }
+                             }
+                         }.start();
+
+
                     }
-                }
-            }.start();
-        }
-        Thread.sleep(10000L);
 
-        System.out.println("1"+"-" + cache.get("1"));
-    }
+
+     }
 
 
 }
