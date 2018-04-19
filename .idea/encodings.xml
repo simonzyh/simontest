@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="jar://$MAVEN_REPOSITORY$/com/alibaba/platform/shared/simpleimage/1.1.6/simpleimage-1.1.6-sources.jar!/com/alibaba/simpleimage/render/DrawTextParameter.java" charset="GBK" />
+    <file url="jar://$MAVEN_REPOSITORY$/com/alibaba/platform/shared/simpleimage/1.1.6/simpleimage-1.1.6-sources.jar!/com/alibaba/simpleimage/render/ScaleParameter.java" charset="GBK" />
+    <file url="jar://$MAVEN_REPOSITORY$/com/alibaba/platform/shared/simpleimage/1.1.6/simpleimage-1.1.6-sources.jar!/com/alibaba/simpleimage/render/WatermarkParameter.java" charset="GBK" />
+    <file url="jar://$MAVEN_REPOSITORY$/com/alibaba/platform/shared/simpleimage/1.1.6/simpleimage-1.1.6-sources.jar!/com/alibaba/simpleimage/render/WriteParameter.java" charset="GBK" />
+    <file url="jar://$MAVEN_REPOSITORY$/com/alibaba/platform/shared/simpleimage/1.1.6/simpleimage-1.1.6-sources.jar!/com/alibaba/simpleimage/render/WriteRender.java" charset="GBK" />
+    <file url="jar://$MAVEN_REPOSITORY$/com/alibaba/platform/shared/simpleimage/1.1.7/simpleimage-1.1.7-sources.jar!/com/alibaba/simpleimage/render/WriteParameter.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/FileUtils.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/Test.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/fc/StartMain.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/fc/Test.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/imagesy/FontManager.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/javassisttest/Copier.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/proxy/cglib/MyCglibProxy.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/proxy/jdk/LogHandler.java" charset="GBK" />
@@ -15,6 +23,7 @@
     <file url="file://$PROJECT_DIR$/src/main/java/test/DateTools.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/test/Jdk8test.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/zookeeper/ZKUtils.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/mwsleyrl.TTF" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/words.txt" charset="GBK" />
     <file url="PROJECT" charset="UTF-8" />
   </component>

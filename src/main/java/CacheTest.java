@@ -1,8 +1,10 @@
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
@@ -10,6 +12,7 @@ import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.google.common.cache.RemovalListener;
 import com.google.common.cache.RemovalNotification;
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang3.StringEscapeUtils;
 
 /**
@@ -37,7 +40,24 @@ public class CacheTest {
                return v;
            }
        });
+
+   private static <R> R get(String ket, Function<String,? extends R> function){
+       Object o=null;
+       return (R)o;
+   }
     public static  void main(String[] args) throws  Exception {
+     List l= get("", new Function<String, List<String>>() {
+          /**
+           * Applies this function to the given argument.
+           *
+           * @param s the function argument
+           * @return the function result
+           */
+          @Override
+          public List<String> apply(String s) {
+              return null;
+          }
+      });
 
             System.out.println("1" +"-"+ cache.get("1"));
 
@@ -60,8 +80,18 @@ public class CacheTest {
 
                     }
 
-
+                System.out.println(  Integer.parseInt("000"));
+       String userid="20881212121212199";
+        int mUserId = Integer.parseInt(userid.substring(userid.length() - 2));
+         System.out.println(getVirtualUserIdFromUserId("2088302211026005"));
      }
+
+
+    public static String getVirtualUserIdFromUserId(String userId) {
+        String shortUid = StringUtils.substring(userId, 13, 15);
+        System.out.println(shortUid);
+        return StringUtils.leftPad(shortUid, 15, "0") + "0";
+    }
 
 
 }
