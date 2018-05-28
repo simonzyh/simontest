@@ -80,7 +80,7 @@ public class FileUtils {
 
     private static void witeToFile(List<String> data, String filename) {
         try {
-            String path = System.getProperty("user.dir")  + File.separator;
+            String path = System.getProperty("user.dir") + File.separator;
             PrintWriter pw = new PrintWriter(path + filename + ".txt");
             for (Object line : data) {
                 pw.println(line);
@@ -97,7 +97,7 @@ public class FileUtils {
     private static List<String> getData(String filename) {
         List<String> res = new ArrayList<String>();
         try {
-            String path = System.getProperty("user.dir")  + File.separator;
+            String path = System.getProperty("user.dir") + File.separator;
             BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(new File(path + filename + ".txt"))));
             String strLine = null;
             while ((strLine = br.readLine()) != null)

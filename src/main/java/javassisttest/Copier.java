@@ -85,6 +85,7 @@ public class Copier {
             throw new RuntimeException(e);
         }
     }
+
     private static Key getKey(Object from, Object to, String[] ignoreProperties) {
         Class<?> fromClass = from.getClass();
         Class<?> toClass = to.getClass();
@@ -95,7 +96,7 @@ public class Copier {
     public static void main(String[] args) {
         c1 t1 = new c1();
         t1.setAddress("address");
-         c2 t2 = new c2();
+        c2 t2 = new c2();
         t2.setName("name2");
         Copier.copy(t1, t2);
         System.out.println(JSON.toJSONString(t2));

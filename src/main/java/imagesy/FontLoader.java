@@ -1,7 +1,6 @@
 package imagesy;
 
-import java.awt.Font;
-import java.awt.FontFormatException;
+import java.awt.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.locks.Lock;
@@ -9,20 +8,19 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class FontLoader {
 
+    protected final Lock lock = new ReentrantLock();
+    protected String name;
+    protected int fontType;
+    protected String path;
     private volatile Font font;
 
-    protected String      name;
-    protected int         fontType;
-    protected String      path;
-    protected final Lock  lock = new ReentrantLock();
-
-    public FontLoader(String name, int fontType, String path){
+    public FontLoader(String name, int fontType, String path) {
         this.name = name;
         this.fontType = fontType;
         this.path = path;
     }
 
-    public FontLoader(String name, String path){
+    public FontLoader(String name, String path) {
         this(name, Font.TRUETYPE_FONT, path);
     }
 

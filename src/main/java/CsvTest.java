@@ -1,5 +1,8 @@
+import au.com.bytecode.opencsv.CSVReader;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -7,12 +10,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-
-import au.com.bytecode.opencsv.CSVReader;
-import org.apache.ecs.wml.I;
 
 /**
  * Created by yehua.zyh on 2018/3/20.
@@ -29,45 +26,46 @@ public class CsvTest {
         for (int i = 0; i < key.length; i++) {
             System.out.println("eventPayload.put(\"" + key[i] + "\",\"" + value[i] + "\")");
         }
-        Map<String,String> eventPayload=new HashMap<String,String>();
+        Map<String, String> eventPayload = new HashMap<String, String>();
 
-        eventPayload.put("id","1407609");
-        eventPayload.put("gmt_create","2018-03-23 21:52:01");
-        eventPayload.put("gmt_modified","2018-03-23 21:53:51");
-        eventPayload.put("user_id","2088422750545482");
-        eventPayload.put("gmt_creator","pcac");
-        eventPayload.put("gmt_modifier","pcac");
-        eventPayload.put("apply_no","201803230142402948A");
-        eventPayload.put("apply_status","APPLY_FINISH");
-        eventPayload.put("person_name","邵玉华");
-        eventPayload.put("cert_no","232303195805101021");
-        eventPayload.put("amount","0E-8");
-        eventPayload.put("virtual_credit_type","JB_PLATFORM_2_ADMIT_CREDIT_APPLY");
-        eventPayload.put("apply_date","2018-03-23 21:52:01");
-        eventPayload.put("prod_id","J1010100100000000004");
-        eventPayload.put("service_type","null");
-        eventPayload.put("rel_prod","null");
-        eventPayload.put("ext_no","20180323fe7284bd-4c62-4a27-b4df-b173b66b2d3448B");
-        eventPayload.put("ext_json",    "{\"PUSH_URL\":\"/www/jiebei/pages/openScene.htm?undefined\"," + "\"antLoanServiceV2ArNo\":\"20180325J1010111039206771797\",\"creditSignature\":false," + "\"device_info\":{\"imei\":\"\",\"imsi\":\"\",\"ip\":\"\",\"mac\":\"\",\"wifimac\":\"\"}," + "\"orgArNo\":\"20180325J1010111039206771797\",\"platformCreditNo\":\"2018032510145180\"," + "\"verifyBizId\":\"lendweb026bb9fc-f782-4b0a-a128-bae83fb0f21df51bdd5affa56cd6839ce3e9f0709a8a\"}");
-        eventPayload.put("refuse_code","null");
-        eventPayload.put("ext_items","null");
-        eventPayload.put("org_info",    "{\"loanMode\":\"4\",\"orgAlipayUserId\":\"2088621779633525\"," + "\"orgArNo\":\"20180209J1010111037343624003\",\"orgCode\":\"V_MYBK_GLBK\"," + "\"orgName\":\"浙江网商银行股份有限公司和桂林银行股份有限公司\",\"orgShortName\":\"浙江网商银行,桂林银行\"," + "\"participants\":[{\"instCode\":\"MYBK\",\"investRate\":0.1,\"orgName\":\"浙江网商银行股份有限公司\"," + "\"orgPartnerId\":\"2088921950512727\",\"orgSimpleName\":\"浙江网商银行\",\"partner\":\"01\"," + "\"zmAuthOrgFlag\":false},{\"instCode\":\"GLBK\",\"investRate\":0.9,\"orgName\":\"桂林银行股份有限公司\"," + "\"orgPartnerId\":\"2088621779633525\",\"orgSimpleName\":\"桂林银行\",\"partner\":\"04\",\"zmAuthOrgFlag\":false}]," + "\"signature\":\"8177B469C64A6E14B171BDE929E0A9A3\",\"zmAuthOrgFlag\":false}");
-        eventPayload.put("mobile_no","13303660565");
-        eventPayload.put("channel","2100");
-        eventPayload.put("scene","PLATFORM_CASH_LOAN");
+        eventPayload.put("id", "1407609");
+        eventPayload.put("gmt_create", "2018-03-23 21:52:01");
+        eventPayload.put("gmt_modified", "2018-03-23 21:53:51");
+        eventPayload.put("user_id", "2088422750545482");
+        eventPayload.put("gmt_creator", "pcac");
+        eventPayload.put("gmt_modifier", "pcac");
+        eventPayload.put("apply_no", "201803230142402948A");
+        eventPayload.put("apply_status", "APPLY_FINISH");
+        eventPayload.put("person_name", "邵玉华");
+        eventPayload.put("cert_no", "232303195805101021");
+        eventPayload.put("amount", "0E-8");
+        eventPayload.put("virtual_credit_type", "JB_PLATFORM_2_ADMIT_CREDIT_APPLY");
+        eventPayload.put("apply_date", "2018-03-23 21:52:01");
+        eventPayload.put("prod_id", "J1010100100000000004");
+        eventPayload.put("service_type", "null");
+        eventPayload.put("rel_prod", "null");
+        eventPayload.put("ext_no", "20180323fe7284bd-4c62-4a27-b4df-b173b66b2d3448B");
+        eventPayload.put("ext_json", "{\"PUSH_URL\":\"/www/jiebei/pages/openScene.htm?undefined\"," + "\"antLoanServiceV2ArNo\":\"20180325J1010111039206771797\",\"creditSignature\":false," + "\"device_info\":{\"imei\":\"\",\"imsi\":\"\",\"ip\":\"\",\"mac\":\"\",\"wifimac\":\"\"}," + "\"orgArNo\":\"20180325J1010111039206771797\",\"platformCreditNo\":\"2018032510145180\"," + "\"verifyBizId\":\"lendweb026bb9fc-f782-4b0a-a128-bae83fb0f21df51bdd5affa56cd6839ce3e9f0709a8a\"}");
+        eventPayload.put("refuse_code", "null");
+        eventPayload.put("ext_items", "null");
+        eventPayload.put("org_info", "{\"loanMode\":\"4\",\"orgAlipayUserId\":\"2088621779633525\"," + "\"orgArNo\":\"20180209J1010111037343624003\",\"orgCode\":\"V_MYBK_GLBK\"," + "\"orgName\":\"浙江网商银行股份有限公司和桂林银行股份有限公司\",\"orgShortName\":\"浙江网商银行,桂林银行\"," + "\"participants\":[{\"instCode\":\"MYBK\",\"investRate\":0.1,\"orgName\":\"浙江网商银行股份有限公司\"," + "\"orgPartnerId\":\"2088921950512727\",\"orgSimpleName\":\"浙江网商银行\",\"partner\":\"01\"," + "\"zmAuthOrgFlag\":false},{\"instCode\":\"GLBK\",\"investRate\":0.9,\"orgName\":\"桂林银行股份有限公司\"," + "\"orgPartnerId\":\"2088621779633525\",\"orgSimpleName\":\"桂林银行\",\"partner\":\"04\",\"zmAuthOrgFlag\":false}]," + "\"signature\":\"8177B469C64A6E14B171BDE929E0A9A3\",\"zmAuthOrgFlag\":false}");
+        eventPayload.put("mobile_no", "13303660565");
+        eventPayload.put("channel", "2100");
+        eventPayload.put("scene", "PLATFORM_CASH_LOAN");
     }
-    public static void main1(String[] args) throws  Exception {
-        DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        CSVReader csvReader=new CSVReader(new FileReader(new File("/Users/yehua.zyh/Downloads/执行结果-3.txt")));
+
+    public static void main1(String[] args) throws Exception {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        CSVReader csvReader = new CSVReader(new FileReader(new File("/Users/yehua.zyh/Downloads/执行结果-3.txt")));
         csvReader.readNext();
-        List<String[]> datalist= csvReader.readAll();
+        List<String[]> datalist = csvReader.readAll();
         System.out.println(JSON.toJSONString(datalist));
-        String insertSql="insert into pcip_credit_apply(gmt_create, gmt_modified, user_id, credit_apply_no ,"
-            + "            cert_no, cert_type ,user_name, mobile_no, credit_type, pd_code, org_code,"
-            + "            org_name, apply_date, status, result_msg, loan_mode, credit_no,"
-            + "            zm_auth_flag, credit_amt, credit_int_rate, env, ext_info,org_code_pt ,scene ,channel )values (";
-        List<String> fullsql=new ArrayList<>();
-        for(String[] strArr:datalist){
+        String insertSql = "insert into pcip_credit_apply(gmt_create, gmt_modified, user_id, credit_apply_no ,"
+                + "            cert_no, cert_type ,user_name, mobile_no, credit_type, pd_code, org_code,"
+                + "            org_name, apply_date, status, result_msg, loan_mode, credit_no,"
+                + "            zm_auth_flag, credit_amt, credit_int_rate, env, ext_info,org_code_pt ,scene ,channel )values (";
+        List<String> fullsql = new ArrayList<>();
+        for (String[] strArr : datalist) {
             try {
                 StringBuffer sql = new StringBuffer();
                 sql.append(insertSql).append("'");
@@ -149,11 +147,10 @@ public class CsvTest {
                 String channel = strArr[24];
                 sql.append(channel).append("') ;");
                 System.out.println(sql.toString());
-            }catch (Exception e){
+            } catch (Exception e) {
                 //System.out.println(JSON.toJSONString(strArr));
-               // e.printStackTrace();
+                // e.printStackTrace();
             }
-
 
 
         }
@@ -161,42 +158,42 @@ public class CsvTest {
 
     }
 
-    private Object getEnv(){
-        Map<String,Object> mapData=new HashMap<>();
+    private Object getEnv() {
+        Map<String, Object> mapData = new HashMap<>();
 
         String extInfo = (String) mapData.get("ext_info");
 
-        Map<String,Object> extInfoMap=JSON.parseObject(extInfo,Map.class);
-        if(!extInfoMap.containsKey("creditInfo")){
+        Map<String, Object> extInfoMap = JSON.parseObject(extInfo, Map.class);
+        if (!extInfoMap.containsKey("creditInfo")) {
             return null;
         }
-        Map<String,Object> creditInfo=JSON.parseObject(extInfoMap.get("creditInfo").toString(),Map.class);
-        if(null==creditInfo||!creditInfo.containsKey("orgInfoDTO")){
+        Map<String, Object> creditInfo = JSON.parseObject(extInfoMap.get("creditInfo").toString(), Map.class);
+        if (null == creditInfo || !creditInfo.containsKey("orgInfoDTO")) {
             return null;
         }
-        Map<String,Object> orgInfoDTO=JSON.parseObject(creditInfo.get("orgInfoDTO").toString(),Map.class);
-        if(null==orgInfoDTO||!orgInfoDTO.containsKey("orgCode")){
+        Map<String, Object> orgInfoDTO = JSON.parseObject(creditInfo.get("orgInfoDTO").toString(), Map.class);
+        if (null == orgInfoDTO || !orgInfoDTO.containsKey("orgCode")) {
             return null;
         }
-        String orgCode=  orgInfoDTO.get("orgCode").toString();
-        if(!"V_MYBK".equals(orgCode)){
+        String orgCode = orgInfoDTO.get("orgCode").toString();
+        if (!"V_MYBK".equals(orgCode)) {
             return orgCode;
         }
-        List<Map> participants=JSON.parseArray(orgInfoDTO.get("participants").toString(),Map.class);
-        if(null==participants){
+        List<Map> participants = JSON.parseArray(orgInfoDTO.get("participants").toString(), Map.class);
+        if (null == participants) {
             return null;
         }
-        for(Map map:participants){
-           if(map==null|| !map.containsKey("instCode")){
-               continue;
-           }
-           String instCode=map.get("instCode").toString();
-           if("MYBK".equals(instCode)){
-               continue;
-           }
-           orgCode+="_"+instCode;
-           break;
+        for (Map map : participants) {
+            if (map == null || !map.containsKey("instCode")) {
+                continue;
+            }
+            String instCode = map.get("instCode").toString();
+            if ("MYBK".equals(instCode)) {
+                continue;
+            }
+            orgCode += "_" + instCode;
+            break;
         }
-       return orgCode;
+        return orgCode;
     }
 }

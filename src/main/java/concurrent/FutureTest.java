@@ -14,13 +14,13 @@ public class FutureTest {
             public String call() throws Exception {
                 Thread.sleep(10000);
                 System.out.println("run call");
-                if(1==1){
+                if (1 == 1) {
                     throw new Exception("test");
                 }
                 return "future hello world";
             }
         });
-         CountDownLatch c;
+        CountDownLatch c;
         System.out.println(futureTask.isDone());
         futureTask.run();
         System.out.println(futureTask.isDone());

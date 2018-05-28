@@ -1,7 +1,5 @@
 package storm.bolts;
 
-import java.util.Map;
-
 import backtype.storm.task.OutputCollector;
 import backtype.storm.task.TopologyContext;
 import backtype.storm.topology.BasicOutputCollector;
@@ -11,32 +9,36 @@ import backtype.storm.tuple.Fields;
 import backtype.storm.tuple.Tuple;
 import backtype.storm.tuple.Values;
 
+import java.util.Map;
+
 public class WordNormalizer extends BaseBasicBolt {
     OutputCollector outputCollector;
-	public void cleanup() {}
 
-	/**
-	 * The bolt will receive the line from the
-	 * words file and process it to Normalize this line
-	 *
-	 * The normalize will be put the words in lower case
-	 * and split the line to get all words in this
-	 */
-	public void execute(Tuple input, BasicOutputCollector collector) {
+    public void cleanup() {
+    }
+
+    /**
+     * The bolt will receive the line from the
+     * words file and process it to Normalize this line
+     * <p>
+     * The normalize will be put the words in lower case
+     * and split the line to get all words in this
+     */
+    public void execute(Tuple input, BasicOutputCollector collector) {
         String sentence = input.getString(0);
         String[] words = sentence.split(" ");
 
-        for(String word : words){
+        for (String word : words) {
             word = word.trim();
-            if(!word.isEmpty()){
+            if (!word.isEmpty()) {
                 word = word.toLowerCase();
                 collector.emit(new Values(word));
 
             }
         }
-       // outputCollector.ack(input);
+        // outputCollector.ack(input);
         outputCollector.fail(input);
-	}
+    }
 
     @Override
     public void prepare(Map stormConf, TopologyContext context) {
@@ -44,10 +46,10 @@ public class WordNormalizer extends BaseBasicBolt {
 
     }
 
-	/**
-	 * The bolt will only emit the field "word"
-	 */
-	public void declareOutputFields(OutputFieldsDeclarer declarer) {
-		declarer.declare(new Fields("word"));
-	}
+    /**
+     * The bolt will only emit the field "word"
+     */
+    public void declareOutputFields(OutputFieldsDeclarer declarer) {
+        declarer.declare(new Fields("word"));
+    }
 }

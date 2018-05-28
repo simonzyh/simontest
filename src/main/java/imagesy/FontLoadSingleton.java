@@ -1,10 +1,10 @@
 package imagesy;
 
-import java.awt.*;
-import java.io.FileInputStream;
-
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+
+import java.awt.*;
+import java.io.FileInputStream;
 
 /**
  * 加载字体
@@ -14,11 +14,10 @@ import org.springframework.core.io.Resource;
 public class FontLoadSingleton {
 
 
-    Font font = null;
     private static final int FONT_SIZE = 12;
     private static final String FONT_PATH = "/mwsleyrl.TTF";
-
     private static final FontLoadSingleton INSTANCE = new FontLoadSingleton();
+    Font font = null;
 
     private FontLoadSingleton() {
         try {
@@ -41,11 +40,11 @@ public class FontLoadSingleton {
         return INSTANCE;
     }
 
-    public Font getFont() {
-        return font;
+    public static void main(String[] args) {
+        System.out.println(getInstance().getFont());
     }
 
-    public static void main(String[] args){
-        System.out.println(getInstance().getFont());
+    public Font getFont() {
+        return font;
     }
 }

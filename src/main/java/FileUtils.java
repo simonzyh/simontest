@@ -1,27 +1,15 @@
-import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-import com.alibaba.common.logging.Logger;
-import com.alibaba.common.logging.LoggerFactory;
-
 
 /**
  * Created by yehua.zyh on 2018/3/19. ziputils
  */
 public class FileUtils {
-    private static final Logger LOG = LoggerFactory.getLogger(FileUtils.class);
 
     /**
      * 根据多个输入的inputstream 打成zip文件压缩包
@@ -30,28 +18,28 @@ public class FileUtils {
      * @return
      */
     public static void zip(Map<String, InputStream> inputStreamMap) throws IOException {
-     byte[] buf=new byte[1024];
+        byte[] buf = new byte[1024];
 
         //打成的zip包输出到字节流
-        OutputStream outputStream=new FileOutputStream(new File("/Users/yehua.zyh/test.zip"));
+        OutputStream outputStream = new FileOutputStream(new File("/Users/yehua.zyh/test.zip"));
         ZipOutputStream zos = null;
         ZipEntry ze = null;
-             zos = new ZipOutputStream(outputStream);
-             zos.setLevel(0);
+        zos = new ZipOutputStream(outputStream);
+        zos.setLevel(0);
 
-            for (Entry<String, InputStream> entry : inputStreamMap.entrySet()) {
-                ze = new ZipEntry(entry.getKey());
-                //byte[] data = readByte(entry.getValue());
-                //ze.setSize(data.length);
-                zos.putNextEntry(ze);
-                int len;
-                while((len=entry.getValue().read(buf))>0){
-                    zos.write(buf,0,len);
-                }
-               // zos.write(data);
+        for (Entry<String, InputStream> entry : inputStreamMap.entrySet()) {
+            ze = new ZipEntry(entry.getKey());
+            //byte[] data = readByte(entry.getValue());
+            //ze.setSize(data.length);
+            zos.putNextEntry(ze);
+            int len;
+            while ((len = entry.getValue().read(buf)) > 0) {
+                zos.write(buf, 0, len);
             }
-            zos.flush();
-            zos.finish();
+            // zos.write(data);
+        }
+        zos.flush();
+        zos.finish();
         outputStream.flush();
 
 
@@ -59,19 +47,19 @@ public class FileUtils {
         outputStream.close();
 
 
-
     }
-   public static void main(String[] args) throws Exception{
-        InputStream i1=new FileInputStream(new File("/Users/yehua.zyh/test1.png"));
-        InputStream i2=new FileInputStream(new File("/Users/yehua.zyh/test2.jpg"));
-       Map<String, InputStream> map=new HashMap<>();
-       map.put("1.jpg",i1);
-       map.put("2.jpg",i2);
+
+    public static void main(String[] args) throws Exception {
+        InputStream i1 = new FileInputStream(new File("/Users/yehua.zyh/test1.png"));
+        InputStream i2 = new FileInputStream(new File("/Users/yehua.zyh/test2.jpg"));
+        Map<String, InputStream> map = new HashMap<>();
+        map.put("1.jpg", i1);
+        map.put("2.jpg", i2);
         zip(map);
 
 
+    }
 
-   }
     /**
      * 从inpuerstream 中读取byte数组
      *

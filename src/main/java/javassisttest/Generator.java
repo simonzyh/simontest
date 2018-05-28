@@ -1,6 +1,5 @@
 package javassisttest;
 
-import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import javassist.*;
@@ -29,7 +28,6 @@ public class Generator {
     private Class source;
     private Class target;
     private String[] ignoreProperties;
-
 
 
     /**
@@ -75,7 +73,7 @@ public class Generator {
 
     private String generateBegin(String methodName) {
         // 生成方法签名public void copy(Object s1, Object t1) {
-        String beginSource = "public void "+methodName+"(Object " + SOURCE + "1, Object " + TARGET + "1) {\n";
+        String beginSource = "public void " + methodName + "(Object " + SOURCE + "1, Object " + TARGET + "1) {\n";
         // 强制转换源对象
         String convertSource = "\t" + source.getName() + " " + SOURCE + " = " + "(" + source.getName() + ")" + SOURCE + "1;\n";
         // 强制转换目标对象
@@ -84,12 +82,12 @@ public class Generator {
         return beginSource;
     }
 
-    private String  generateEnd() {
-        return  "}\n";
+    private String generateEnd() {
+        return "}\n";
     }
 
     private List<String> generateBody(boolean isCheckNull) {
-        List<String> propSources=Lists.newArrayList();
+        List<String> propSources = Lists.newArrayList();
         PropertyDescriptor[] getters = getPropertyDescriptors(source);
         PropertyDescriptor[] setters = getPropertyDescriptors(target);
 
@@ -108,7 +106,7 @@ public class Generator {
             String readMethodName = readMethod.getName();
             String writerMethodName = writeMethod.getName();
             if (compatible(getter, setter)) {
-                propSources.add(genPropertySource(writerMethodName, SOURCE + "." + readMethodName + "()",isCheckNull));
+                propSources.add(genPropertySource(writerMethodName, SOURCE + "." + readMethodName + "()", isCheckNull));
             } else {
                 // 是否是包装类转换
                 if (compatibleWrapper(getter, setter)) {
@@ -116,10 +114,10 @@ public class Generator {
                     String f = convert.convert();
                     if (f != null) {
                         if (isWrapClass(getter.getPropertyType())) {
-                            String source  = genPropertySource(writerMethodName, f, true);
+                            String source = genPropertySource(writerMethodName, f, true);
                             propSources.add(source);
                         } else {
-                            propSources.add(genPropertySource(writerMethodName, f,false));
+                            propSources.add(genPropertySource(writerMethodName, f, false));
                         }
                         continue;
                     }
@@ -134,13 +132,12 @@ public class Generator {
         return "\tif(" + SOURCE + "." + readName + "() != null)\n";
     }
 
-    private String genPropertySource(String writerMethodName, String getterSource,boolean isCheckNull) {
-        String setMethod="\t" + TARGET + "." + writerMethodName + "(" + getterSource + ");\n";
-        if(!isCheckNull) {
+    private String genPropertySource(String writerMethodName, String getterSource, boolean isCheckNull) {
+        String setMethod = "\t" + TARGET + "." + writerMethodName + "(" + getterSource + ");\n";
+        if (!isCheckNull) {
             return setMethod;
-        }else
-        {
-            return "\tif("  +getterSource + " != null)\n"+"{"+setMethod+"};\n";
+        } else {
+            return "\tif(" + getterSource + " != null)\n" + "{" + setMethod + "};\n";
 
         }
     }
@@ -211,11 +208,12 @@ public class Generator {
         mergebuilder.append(generateBegin("merge"));
         for (String ps : generateBody(true)) {
             mergebuilder.append(ps);
-        }        generateEnd();
+        }
+        generateEnd();
 
         mergebuilder.append(generateEnd());
 
-         ClassPool pool = ClassPool.getDefault();
+        ClassPool pool = ClassPool.getDefault();
         /**
          * The default ClassPool returned by a static method ClassPool.getDefault() searches the same path that
          * the underlying JVM (Java virtual machine) has. If a program is running on a web application server

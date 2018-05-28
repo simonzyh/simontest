@@ -1,17 +1,12 @@
 package imagesy;
 
+import org.apache.commons.lang.StringUtils;
+
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-
-import javax.imageio.ImageIO;
-
-import org.apache.commons.lang.StringUtils;
+import java.io.*;
 
 /**
  * Created by yehua.zyh on 2018/4/17.

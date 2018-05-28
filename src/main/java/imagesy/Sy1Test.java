@@ -1,29 +1,16 @@
 package imagesy;
 
+import org.apache.commons.lang.StringUtils;
+import org.springframework.core.io.ClassPathResource;
+
+import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.font.TextAttribute;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-import java.text.AttributedString;
-
-import javax.imageio.ImageIO;
-
-import com.alibaba.simpleimage.ImageFormat;
-import com.alibaba.simpleimage.ImageRender;
-import com.alibaba.simpleimage.render.CornerDrawTextItem;
-import com.alibaba.simpleimage.render.DrawTextParameter;
-import com.alibaba.simpleimage.render.DrawTextRender;
-import com.alibaba.simpleimage.render.ReadRender;
-import com.alibaba.simpleimage.render.WriteParameter;
-import com.alibaba.simpleimage.render.WriteRender;
-
-import org.apache.commons.lang.StringUtils;
-import org.springframework.core.io.ClassPathResource;
 
 /**
  * Created by yehua.zyh on 2018/3/30.
@@ -46,7 +33,7 @@ public class Sy1Test {
         graphics.drawImage(image, 0, 0, null);
 
         // 设置字体
-        Font font = FontLoadSingleton.getInstance().getFont().deriveFont(20,25);
+        Font font = FontLoadSingleton.getInstance().getFont().deriveFont(20, 25);
         graphics.setFont(font);
 
         // 背景颜色
@@ -59,14 +46,14 @@ public class Sy1Test {
         // 内容颜色
         Color color = new Color(234, 234, 234);
         graphics.setPaint(color);
-        for(int i=0;i<3;i++) {
+        for (int i = 0; i < 3; i++) {
             // 计算内容出现位置
             FontMetrics fontMetrics = graphics.getFontMetrics();
             int stringWidth = fontMetrics.stringWidth(message);
             int startX = (width - stringWidth) / 3;
             int startY = height / 2 + stringWidth / 4; // 1/4处
-             startX+=100*i;
-             startY+=50*i;
+            startX += 100 * i;
+            startY += 50 * i;
             AffineTransform atf = new AffineTransform();
             atf.rotate(-30 * Math.PI / 180, startX, startY); // -30倾斜角度
             graphics.setTransform(atf);

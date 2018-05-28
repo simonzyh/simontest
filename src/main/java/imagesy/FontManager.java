@@ -1,11 +1,11 @@
 package imagesy;
 
-import java.awt.Font;
+import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
 public class FontManager {
-    
+
     private static final Map<String, FontLoader> caches = new HashMap<String, FontLoader>();
 
     static {
@@ -20,7 +20,7 @@ public class FontManager {
 
         return loader.getFont();
     }
-    
+
     public static void main(String[] args) {
         System.out.println(getFont("founderblack"));
     }

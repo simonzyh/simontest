@@ -1,90 +1,81 @@
-import java.net.URLDecoder;
-import java.net.URLEncoder;
+import com.google.common.cache.*;
+import org.apache.commons.lang.StringUtils;
+
 import java.util.List;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
-
-import com.google.common.cache.Cache;
-import com.google.common.cache.CacheBuilder;
-import com.google.common.cache.CacheLoader;
-import com.google.common.cache.LoadingCache;
-import com.google.common.cache.RemovalListener;
-import com.google.common.cache.RemovalNotification;
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang3.StringEscapeUtils;
 
 /**
  * Created by yehua.zyh on 2017/5/4.
  */
 public class CacheTest {
-   static LoadingCache<String, String> cache = CacheBuilder.newBuilder().
-       maximumSize(5)
-       .refreshAfterWrite(8,TimeUnit.SECONDS)
+    static LoadingCache<String, String> cache = CacheBuilder.newBuilder().
+            maximumSize(5)
+            .refreshAfterWrite(8, TimeUnit.SECONDS)
 
-       //.expireAfterWrite(80, TimeUnit.SECONDS)
-        .removalListener(new RemovalListener<String, String>() {
+            //.expireAfterWrite(80, TimeUnit.SECONDS)
+            .removalListener(new RemovalListener<String, String>() {
+                @Override
+                public void onRemoval(RemovalNotification<String, String> rn) {
+                    System.out.println(rn.getKey() + "-" + rn.getValue() + "==被移除");
+                }
+
+            }).build(new CacheLoader<String, String>() {
+
+                @Override
+                public String load(String s) throws Exception {
+                    String v = System.currentTimeMillis() + "";
+                    Thread.sleep(100);
+                    System.out.println("加载" + s + "-" + v);
+                    return v;
+                }
+            });
+
+    private static <R> R get(String ket, Function<String, ? extends R> function) {
+        Object o = null;
+        return (R) o;
+    }
+
+    public static void main(String[] args) throws Exception {
+        List l = get("", new Function<String, List<String>>() {
+            /**
+             * Applies this function to the given argument.
+             *
+             * @param s the function argument
+             * @return the function result
+             */
             @Override
-            public void onRemoval(RemovalNotification<String, String> rn) {
-                System.out.println(rn.getKey() +"-"+rn.getValue()+ "==被移除");
+            public List<String> apply(String s) {
+                return null;
             }
+        });
 
-        }).build(new CacheLoader<String,String>() {
+        System.out.println("1" + "-" + cache.get("1"));
 
-           @Override
-           public String load(String s) throws Exception {
-               String v=System.currentTimeMillis()+"";
-               Thread.sleep(100);
-               System.out.println("加载"+s+"-"+v);
-               return v;
-           }
-       });
+        for (int i = 0; i < 3; i++) {
+            new Thread() {
 
-   private static <R> R get(String ket, Function<String,? extends R> function){
-       Object o=null;
-       return (R)o;
-   }
-    public static  void main(String[] args) throws  Exception {
-     List l= get("", new Function<String, List<String>>() {
-          /**
-           * Applies this function to the given argument.
-           *
-           * @param s the function argument
-           * @return the function result
-           */
-          @Override
-          public List<String> apply(String s) {
-              return null;
-          }
-      });
+                @Override
+                public void run() {
+                    try {
+                        while (true) {
+                            int j = 0;
+                        }
 
-            System.out.println("1" +"-"+ cache.get("1"));
-
-                     for(int i=0;i<3;i++) {
-                         new Thread(){
-
-                             @Override
-                             public  void run(){
-                                 try {
-                                     while(true){
-                                         int j=0;
-                                     }
-
-                                 } catch (Exception e) {
-                                     e.printStackTrace();
-                                 }
-                             }
-                         }.start();
-
-
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
+                }
+            }.start();
 
-                System.out.println(  Integer.parseInt("000"));
-       String userid="20881212121212199";
+
+        }
+
+        System.out.println(Integer.parseInt("000"));
+        String userid = "20881212121212199";
         int mUserId = Integer.parseInt(userid.substring(userid.length() - 2));
-         System.out.println(getVirtualUserIdFromUserId("2088302211026005"));
-     }
+        System.out.println(getVirtualUserIdFromUserId("2088302211026005"));
+    }
 
 
     public static String getVirtualUserIdFromUserId(String userId) {

@@ -32,12 +32,12 @@ public class HelloClientHandler extends SimpleChannelHandler {
 	 
 		 
 	}*/
-      /*
+    /*
      * 当绑定到服务端的时候触发，给服务端发消息。
-	 * 
-	 * @author lihzh
-	 * @alia OneCoder
-	 */
+     *
+     * @author lihzh
+     * @alia OneCoder
+     */
     @Override
     public void channelConnected(ChannelHandlerContext ctx, ChannelStateEvent e) {
         this.e = e;
