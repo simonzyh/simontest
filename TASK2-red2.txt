@@ -1,5 +1,0 @@
-{"ball":9,"num":52}
-{"ball":6,"num":17}
-{"ball":10,"num":11}
-{"ball":7,"num":7}
-{"ball":8,"num":3}
