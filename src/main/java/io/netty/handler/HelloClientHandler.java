@@ -57,7 +57,6 @@ public class HelloClientHandler extends SimpleChannelHandler {
 
         Command command = (Command) obj;
         // 打印看看是不是我们刚才传过来的那个
-        System.out.println(DateTools.format(new Date(), "yyyy-MM-dd HH:mm:ss:SSS") + "客户端端接收到数据 " + command.getActionName());
 
 
     }
@@ -70,7 +69,6 @@ public class HelloClientHandler extends SimpleChannelHandler {
      * @alia OneCoder
      */
     public void sendObject(String msg) {
-        System.out.println(DateTools.format(new Date(), "yyyy-MM-dd HH:mm:ss:SSS") + "客户端发送数据 " + msg);
 
         Command command = new Command();
         command.setActionName(msg);

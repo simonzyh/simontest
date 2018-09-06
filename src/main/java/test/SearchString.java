@@ -11,34 +11,31 @@ import java.io.InputStreamReader;
 public class SearchString {
 
     public static void main(String[] args) {
-        File f = new File("D:\\workspace\\lpadmin");
-        try {
-            search(f);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+        System.out.println(String.format("%-20s",1234).replaceAll(" ","0").substring(0,5));
 
+        b b1=new b();
+        b1.ma();
+     }
 
-    public static void search(File f) throws Exception {
-        if (f.isDirectory()) {
-            File[] childFils = f.listFiles();
-            for (File child : childFils) {
-                search(child);
-            }
-        } else {
-            if (!f.getName().endsWith("java")) {
-                return;
-            }
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(f), "gbk"));
-            String line = null;
-            while ((line = bufferedReader.readLine()) != null) {
-                if (line.contains("queryServiceClient")) {
-                    System.out.println(line + " " + f.getPath());
-                }
-            }
+  static class a{
+
+        void ma(){
+         m1();
+         m2();
         }
 
 
-    }
+        void m1(){
+            System.out.println("a.m1");
+        }
+      void m2(){
+          System.out.println("a.m2");
+      }
+  }
+
+  static class b extends  a{
+      void m1(){
+          System.out.println("b.m1");
+      }
+  }
 }

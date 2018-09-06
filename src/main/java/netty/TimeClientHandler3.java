@@ -17,8 +17,7 @@ public class TimeClientHandler3 extends SimpleChannelHandler {
     public synchronized void messageReceived(ChannelHandlerContext ctx, MessageEvent e)
             throws Exception {
         Persons person = (Persons) e.getMessage();
-        System.out.println(DateTools.format(new Date(), "yyyy-MM-dd HH:mm:ss:SSS") + "客户端端接收到服务器返回的数据 " + person.getName());
-    }
+     }
 
     @Override
     public synchronized void channelConnected(ChannelHandlerContext ctx, ChannelStateEvent e)

@@ -41,7 +41,6 @@ public class TimeServerHandler3 extends SimpleChannelHandler {
             throws Exception {
         Persons person = (Persons) e.getMessage();
         queue.add(person);
-        System.out.println(DateTools.format(new Date(), "yyyy-MM-dd HH:mm:ss:SSS") + " " + Thread.currentThread().getName());
 
     }
 

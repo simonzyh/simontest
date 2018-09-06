@@ -15,7 +15,6 @@ public class HelloServerHandler extends SimpleChannelInboundHandler<String> {
     protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
         // 收到消息直接打印输出
         System.out.println(DateUtil.formatDate(new Date(), "HH:mm:ss SSS") + "channelRead0 " + ctx.channel().remoteAddress() + " Say : " + msg);
-        DateTools.sleep(100L);
 
         // 返回客户端消息 - 我已经接收到了你的消息
         ctx.writeAndFlush("Received your message !\n");
@@ -31,7 +30,6 @@ public class HelloServerHandler extends SimpleChannelInboundHandler<String> {
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
 
         System.out.println(DateUtil.formatDate(new Date(), "HH:mm:ss SSS") + "channelActive RamoteAddress : " + ctx.channel().remoteAddress());
-        DateTools.sleep(100L);
 
         ctx.writeAndFlush("Welcome to " + InetAddress.getLocalHost().getHostName() + " service!\n");
 
@@ -41,7 +39,6 @@ public class HelloServerHandler extends SimpleChannelInboundHandler<String> {
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         System.out.println(DateUtil.formatDate(new Date(), "HH:mm:ss SSS") + "channelInactive RamoteAddress : " + ctx.channel().remoteAddress());
-        DateTools.sleep(100L);
 
         super.channelInactive(ctx);
     }
