@@ -3,8 +3,6 @@ package javassisttest;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import javassist.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;
@@ -16,18 +14,16 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * Created by yehua.zyh on 2016/6/17.
+ * Created by yehua.zyh
  */
 public class Generator {
     private static final AtomicInteger classNameIndex = new AtomicInteger(1000);
-    private static final Logger LOG = LoggerFactory.getLogger(Generator.class);
     private static final String packageName = Copier.class.getPackage().getName();
 
     private final String SOURCE = "s";
     private final String TARGET = "t";
     private Class source;
     private Class target;
-    private String[] ignoreProperties;
 
 
     /**
@@ -63,17 +59,10 @@ public class Generator {
         this.target = target;
     }
 
-    public String[] getIgnoreProperties() {
-        return ignoreProperties;
-    }
-
-    public void setIgnoreProperties(String[] ignoreProperties) {
-        this.ignoreProperties = ignoreProperties;
-    }
 
     private String generateBegin(String methodName) {
         // 生成方法签名public void copy(Object s1, Object t1) {
-        String beginSource = "public void " + methodName + "(Object " + SOURCE + "1, Object " + TARGET + "1) {\n";
+        String beginSource = "public void " + methodName + "(Object " + SOURCE + "1, Object " + TARGET + "1 ,String ignoreProperties) {\n";
         // 强制转换源对象
         String convertSource = "\t" + source.getName() + " " + SOURCE + " = " + "(" + source.getName() + ")" + SOURCE + "1;\n";
         // 强制转换目标对象
@@ -105,25 +94,20 @@ public class Generator {
             Method writeMethod = setter.getWriteMethod();
             String readMethodName = readMethod.getName();
             String writerMethodName = writeMethod.getName();
-            if (compatible(getter, setter)) {
-                propSources.add(genPropertySource(writerMethodName, SOURCE + "." + readMethodName + "()", isCheckNull));
-            } else {
-                // 是否是包装类转换
-                if (compatibleWrapper(getter, setter)) {
-                    Converter convert = new Converter(setter.getPropertyType(), SOURCE, readMethod.getName());
-                    String f = convert.convert();
-                    if (f != null) {
-                        if (isWrapClass(getter.getPropertyType())) {
-                            String source = genPropertySource(writerMethodName, f, true);
-                            propSources.add(source);
-                        } else {
-                            propSources.add(genPropertySource(writerMethodName, f, false));
-                        }
-                        continue;
-                    }
-                }
-                warnCantConvert(setter, getter);
+            //基本类型不需要判断null 不然 int !=null 语法报错
+            if (getter.getPropertyType().isPrimitive()) {
+                isCheckNull = false;
             }
+            //判断 两个属性是不是一个类型 是否能进行复制，不然出现cast exception
+
+            if (compatible(getter, setter)) {
+                propSources.add(genPropertySource(writerMethodName, getter, isCheckNull));
+            } else {
+                warnCantConvert(setter, getter);
+
+            }
+
+
         }
         return propSources;
     }
@@ -132,14 +116,14 @@ public class Generator {
         return "\tif(" + SOURCE + "." + readName + "() != null)\n";
     }
 
-    private String genPropertySource(String writerMethodName, String getterSource, boolean isCheckNull) {
+    private String genPropertySource(String writerMethodName, PropertyDescriptor getter, boolean isCheckNull) {
+        String getterSource = SOURCE + "." + getter.getReadMethod().getName() + "()";
         String setMethod = "\t" + TARGET + "." + writerMethodName + "(" + getterSource + ");\n";
-        if (!isCheckNull) {
-            return setMethod;
-        } else {
-            return "\tif(" + getterSource + " != null)\n" + "{" + setMethod + "};\n";
-
+        //需要判断null
+        if (isCheckNull) {
+            setMethod = "\tif(" + getterSource + " != null)\n" + "{" + setMethod + "};\n";
         }
+        return "\t if(ignoreProperties==null || !ignoreProperties.contains(\"" + getter.getName() + "\")) \r\n {" + setMethod + "}\n";
     }
 
     private void warnCantConvert(PropertyDescriptor setter, PropertyDescriptor getter) {
@@ -164,10 +148,7 @@ public class Generator {
      * 检查是否可以生成源代码
      */
     private boolean checkCanGenSource(PropertyDescriptor setter, PropertyDescriptor getter) {
-        // 是否被忽略
-        if (ignoreProperties != null && isIgnoredProperty(setter)) {
-            return false;
-        }
+
         // 检查getter是否存在
         if (getter == null || getter.getReadMethod() == null) {
             return false;
@@ -182,15 +163,6 @@ public class Generator {
                 || isWrapClass(setter.getPropertyType(), getter.getPropertyType());
     }
 
-    private boolean isIgnoredProperty(PropertyDescriptor descriptor) {
-        String propertyName = descriptor.getName();
-        for (String ignoreProperty : ignoreProperties) {
-            if (ignoreProperty.equals(propertyName)) {
-                return true;
-            }
-        }
-        return false;
-    }
 
     public Class<Copy> generate() {
         StringBuilder copybuilder = new StringBuilder();
@@ -198,20 +170,25 @@ public class Generator {
         //生产COPY代码
         copybuilder.append(generateBegin("copy"));
         for (String ps : generateBody(false)) {
+            System.out.println(ps);
             copybuilder.append(ps);
         }
 
         copybuilder.append(generateEnd());
+        System.out.println(copybuilder.toString());
         //生产merge代码
         StringBuilder mergebuilder = new StringBuilder();
 
         mergebuilder.append(generateBegin("merge"));
         for (String ps : generateBody(true)) {
+            System.out.println(ps);
             mergebuilder.append(ps);
         }
-        generateEnd();
 
         mergebuilder.append(generateEnd());
+
+        System.out.println(mergebuilder.toString());
+
 
         ClassPool pool = ClassPool.getDefault();
         /**

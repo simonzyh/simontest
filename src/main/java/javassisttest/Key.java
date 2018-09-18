@@ -8,7 +8,6 @@ import java.util.Arrays;
 public class Key {
     private Class<?> fromClass;
     private Class<?> toClass;
-    private String[] ignoreProperties;
 
     public Key(Class<?> fromClass, Class<?> toClass) {
         this.fromClass = fromClass;
@@ -19,8 +18,7 @@ public class Key {
         super();
         this.fromClass = fromClass;
         this.toClass = toClass;
-        this.ignoreProperties = ignoreProperties;
-    }
+     }
 
     @Override
     public boolean equals(Object o) {
@@ -33,7 +31,6 @@ public class Key {
 
         Key key = (Key) o;
         return fromClass.equals(key.fromClass)
-                && Arrays.equals(ignoreProperties, key.ignoreProperties)
                 && toClass.equals(key.toClass);
     }
 
@@ -41,7 +38,6 @@ public class Key {
     public int hashCode() {
         int h = fromClass.hashCode();
         h = 31 * h + toClass.hashCode();
-        h = 31 * h + (ignoreProperties != null ? Arrays.hashCode(ignoreProperties) : 0);
         return h;
     }
 }

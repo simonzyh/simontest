@@ -1,22 +1,15 @@
 package javassisttest;
 
-import com.alibaba.fastjson.JSON;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 
 /**
- * 对象属性复制
- *
- * @author jiachun.fjc
+ * 对象属性copy 所有可复制属性全部copy
+ * or merge 只要不为null的才复制
  */
 public class Copier {
-
-    private static final Logger LOG = LoggerFactory.getLogger(Copier.class);
 
 
     // copy类的缓存，容量1024
@@ -32,26 +25,15 @@ public class Copier {
      * @param <T>              目标对象类型
      * @return 目标对象，同第二个参数to
      */
-    public static <F, T> T copy(final F from, final T to, final String... ignoreProperties) {
-        Key key = getKey(from, to, ignoreProperties);
-        try {
-            Copy copier = copierCache.get(key, new Callable<Copy>() {
+    public static <F, T> T copy(final F from, final T to, final String ignoreProperties) {
+        Copy copier = getCopy(from, to);
+        copier.copy(from, to, ignoreProperties);
+        return to;
+    }
 
+    public static <F, T> T copy(final F from, final T to) {
 
-                public Copy call() throws Exception {
-                    Generator gen = new Generator();
-                    gen.setSource(from.getClass());
-                    gen.setTarget(to.getClass());
-                    gen.setIgnoreProperties(ignoreProperties);
-                    return gen.generate().newInstance();
-                }
-            });
-            copier.copy(from, to);
-            return to;
-        } catch (ExecutionException e) {
-            e.getMessage();
-            throw new RuntimeException(e);
-        }
+        return copy(from, to, null);
     }
 
     /**
@@ -64,90 +46,41 @@ public class Copier {
      * @param <T>              目标对象类型
      * @return 目标对象，同第二个参数to
      */
-    public static <F, T> T merge(final F from, final T to, final String... ignoreProperties) {
-        Key key = getKey(from, to, ignoreProperties);
+    public static <F, T> T merge(final F from, final T to, final String ignoreProperties) {
+
+        Copy copier = getCopy(from, to);
+        copier.merge(from, to, ignoreProperties);
+        return to;
+
+    }
+
+    public static <F, T> T merge(final F from, final T to) {
+
+        return merge(from, to, null);
+
+    }
+
+    private static <F, T> Copy getCopy(F from, T to) {
         try {
-            Copy copier = copierCache.get(key, new Callable<Copy>() {
-
-
-                public Copy call() throws Exception {
-                    Generator gen = new Generator();
-                    gen.setSource(from.getClass());
-                    gen.setTarget(to.getClass());
-                    gen.setIgnoreProperties(ignoreProperties);
-                    return gen.generate().newInstance();
-                }
+            Key key = getKey(from, to);
+            Copy copier = copierCache.get(key, () -> {
+                Generator gen = new Generator();
+                gen.setSource(from.getClass());
+                gen.setTarget(to.getClass());
+                return gen.generate().newInstance();
             });
-            copier.merge(from, to);
-            return to;
+            return copier;
         } catch (ExecutionException e) {
-            e.getMessage();
             throw new RuntimeException(e);
         }
     }
 
-    private static Key getKey(Object from, Object to, String[] ignoreProperties) {
+    private static Key getKey(Object from, Object to) {
         Class<?> fromClass = from.getClass();
         Class<?> toClass = to.getClass();
-        return new Key(fromClass, toClass, ignoreProperties);
-    }
-
-
-    public static void main(String[] args) {
-        c1 t1 = new c1();
-        t1.setAddress("address");
-        c2 t2 = new c2();
-        t2.setName("name2");
-        Copier.copy(t1, t2);
-        System.out.println(JSON.toJSONString(t2));
-
-        c2 t3 = new c2();
-        t3.setName("name3");
-        Copier.merge(t1, t3);
-        System.out.println(JSON.toJSONString(t3));
+        return new Key(fromClass, toClass);
     }
 
 
 }
 
-class c1 {
-    private String name;
-    private String address;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-}
-
-class c2 {
-    private String name;
-    private String address;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-}
