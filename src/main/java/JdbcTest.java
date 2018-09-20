@@ -1,8 +1,17 @@
+import com.alibaba.fastjson.JSON;
+import netty4.HelloClient;
+import org.springframework.core.LocalVariableTableParameterNameDiscoverer;
+import org.springframework.core.ParameterNameDiscoverer;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
 import java.sql.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class JdbcTest {
 
@@ -30,9 +39,26 @@ public class JdbcTest {
          }
     }
 
+    public static void test(Integer i1){
+
+    }
+
+    private static ExecutorService executorService = Executors.newFixedThreadPool(3);
 
 
-    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+    public static void main(String[] args) throws ClassNotFoundException, SQLException, InterruptedException, NoSuchMethodException {
+        System.out.println(HelloClient.class.getPackage()+"."+HelloClient.class.getName());
+
+        Method[] method=JdbcTest.class.getMethods();
+        for(Method method1:method) {
+            System.out.print(method1.getName()+" ");
+            ParameterNameDiscoverer pnd = new LocalVariableTableParameterNameDiscoverer();
+
+                System.out.print(JSON.toJSONString(pnd.getParameterNames(method1)));
+
+            System.out.println();
+        }
+        System.out.println(JSON.parseObject("1",Integer.class));
         Class.forName("oracle.jdbc.driver.OracleDriver");
         String url = "jdbc:oracle:thin:@//192.168.0.215:1521/bjhys"; //连接字符串
 
