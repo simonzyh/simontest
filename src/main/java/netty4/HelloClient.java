@@ -59,18 +59,22 @@ public class HelloClient {
                 //body 是请求参数的json字符串
                 //例如  请求接口是 object test(Object o1,Object o2) 则body是 {'o1':'123','o2':'456'}
 
-
+                //request.setBody("{\"id\":\"1\"}");
                 //head
                 GjMessageHead head = new GjMessageHead();
                 head.setMessageId(line);
+                head.setMessageType(0);
                 head.setAppKey("hnhys");
                 head.setRequestMethod("com.gaojihealth.weixinmp.service.ErpProxyService.register");
                 head.setSign(conVertTextToMD5("hnhys" + request.getBody()));
                 request.setHead(head);
                 //发送ping 消息
-                ch1.writeAndFlush("ping" + "\n");
-                //发送注册
-                ch1.writeAndFlush(JSON.toJSONString(request) + "\n");
+                if ("ping".equals(line)) {
+                    ch1.writeAndFlush("ping" + "\n");
+                } else {
+                    //发送注册
+                    ch1.writeAndFlush(JSON.toJSONString(request) + "\n");
+                }
 
             }
         } finally {
@@ -82,6 +86,7 @@ public class HelloClient {
     // 计算字符串的MD5
     public static String conVertTextToMD5(String plainText) {
         try {
+            System.out.println(plainText);
             MessageDigest md = MessageDigest.getInstance("MD5");
             md.update(plainText.getBytes());
             byte b[] = md.digest();
@@ -105,4 +110,6 @@ public class HelloClient {
         }
 
     }
+
+
 }
