@@ -27,7 +27,7 @@ public class HelloClientHandler extends SimpleChannelInboundHandler<String> {
         if (headj.getMessageType()!=0) {
             return;
         }
-        System.out.println("收到请求" + msg);
+        System.out.println("收到请求:" + msg);
         //head
         GjMessage response = new GjMessage();
         response.setBody(JSON.toJSONString("12345"));
@@ -37,7 +37,7 @@ public class HelloClientHandler extends SimpleChannelInboundHandler<String> {
         head.setMessageType(1);
          head.setSign(conVertTextToMD5("hnhys" + response.getBody()));
         response.setHead(head);
-        // ctx.writeAndFlush(JSON.toJSONString(response) + "\n");
+        ctx.writeAndFlush(JSON.toJSONString(response) + "\n");
 
     }
 
