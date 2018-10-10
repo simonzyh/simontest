@@ -30,7 +30,7 @@ public class HelloClientHandler extends SimpleChannelInboundHandler<String> {
         System.out.println("收到请求:" + msg);
         //head
         GjMessage response = new GjMessage();
-        response.setBody(JSON.toJSONString("12345"));
+        response.setBody(JSON.toJSONString("12121212121212121"));
         GjMessageHead head = new GjMessageHead();
         head.setMessageId(headj.getMessageId());
         head.setAppKey("hnhys");

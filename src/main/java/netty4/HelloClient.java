@@ -18,8 +18,8 @@ import java.security.NoSuchAlgorithmException;
 
 public class HelloClient {
 
-    public static String host = "127.0.0.1";
-    public static int port = 7878;
+    public static String host = "amc.gaojihealth.cn";
+    public static int port = 8080;
 
     /**
      * @param args
