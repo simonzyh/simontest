@@ -13,13 +13,14 @@ import netty4.model.GjMessageHead;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigDecimal;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class HelloClient {
 
-    public static String host = "amc.gaojihealth.cn";
-    public static int port = 8080;
+    public static String host = "127.0.0.1";
+    public static int port = 7878;
 
     /**
      * @param args
@@ -27,6 +28,7 @@ public class HelloClient {
      * @throws IOException
      */
     public static void main(String[] args) throws InterruptedException, IOException {
+        System.out.println(new BigDecimal("12.09").toString());
         EventLoopGroup group = new NioEventLoopGroup();
         try {
             Bootstrap b = new Bootstrap();
