@@ -10,6 +10,7 @@
 
 package test;
 
+
 import com.google.common.collect.Maps;
 
 import java.io.*;
@@ -18,10 +19,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-
-interface Converter<F, T> {
-    T convert(F from);
-}
 
 /**
  * @author 张业�?
@@ -149,8 +146,5 @@ public class Jdk8test {
 
         Collections.sort(names, (String a, String b) -> b.compareTo(a));
 
-        Converter<String, Integer> converter = (from) -> Integer.valueOf(from);
-        Converter<String, Integer> converter1 = Integer::valueOf;
-        Converter<String, Integer> converter2 = Jdk8test::startsWith;
     }
 }

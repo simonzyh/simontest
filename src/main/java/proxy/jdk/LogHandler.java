@@ -8,9 +8,9 @@ public class LogHandler implements InvocationHandler {
 
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         doBefore();
-        //ÔÚÕâÀïÍêÈ«¿ÉÒÔ°ÑÏÂÃæÕâ¾ä×¢ÊÍµô£¬¶ø×öÒ»Ğ©ÆäËüµÄÊÂÇé
+        //åœ¨è¿™é‡Œå®Œå…¨å¯ä»¥æŠŠä¸‹é¢è¿™å¥æ³¨é‡Šæ‰ï¼Œè€Œåšä¸€äº›å…¶å®ƒçš„äº‹æƒ…
         Object result = null;//method.invoke(dele, args);
-        System.out.println("²ÎÊı£º" + java.util.Arrays.toString(args) + " method== " + method.toString() + "  " + method.getGenericReturnType());
+        System.out.println("å‚æ•°ï¼š" + java.util.Arrays.toString(args) + " method== " + method.toString() + "  " + method.getGenericReturnType());
         after();
         return result;
     }

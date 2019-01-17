@@ -448,13 +448,10 @@
             <version>4.4.9</version>
         </dependency>
         <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc8</artifactId>
-            <version>12.1.0.2.0</version>
-            <scope>system</scope>
-            <systemPath>/Users/ljf/Downloads/ojdbc8.jar</systemPath>
+            <groupId>net.bytebuddy</groupId>
+            <artifactId>byte-buddy</artifactId>
+            <version>1.7.9</version>
         </dependency>
-
 
     </dependencies>
 
