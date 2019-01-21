@@ -22,7 +22,7 @@ public class TestStringEncoder extends MessageToMessageEncoder<JSONObject> {
      */
     @Override
     protected void encode(ChannelHandlerContext ctx, JSONObject msg, List<Object> out) throws Exception {
-        String jsonstr=msg.toJSONString()+"\n";
+        String jsonstr = msg.toJSONString() + "\n";
 
         out.add(ByteBufUtil.encodeString(ctx.alloc(), CharBuffer.wrap(jsonstr), Charset.defaultCharset()));
 

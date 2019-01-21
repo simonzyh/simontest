@@ -1,12 +1,11 @@
 package javassisttest;
 
-import com.alibaba.fastjson.JSON;
 import org.springframework.beans.BeanUtils;
 
 public class Test {
 
     public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
-        c1 cc=new c1();
+        c1 cc = new c1();
         cc.setI1(1);
         cc.setI2(2);
         cc.setS1("123");
@@ -23,27 +22,28 @@ public class Test {
         c2 cc21 = new c2();
         Copier.copy(cc, cc21);
         c2 cc22 = new c2();
-        BeanUtils.copyProperties(cc,cc22);
+        BeanUtils.copyProperties(cc, cc22);
 
-        long l1=System.currentTimeMillis();
-        for(int i=0;i<100;i++) {
+        long l1 = System.currentTimeMillis();
+        for (int i = 0; i < 100; i++) {
             c2 cc2 = new c2();
             Copier.copy(cc, cc2);
         }
-        System.out.println(System.currentTimeMillis()-l1);
-        long l2=System.currentTimeMillis();
-        for(int i=0;i<100;i++) {
+        System.out.println(System.currentTimeMillis() - l1);
+        long l2 = System.currentTimeMillis();
+        for (int i = 0; i < 100; i++) {
             c2 cc2 = new c2();
-            BeanUtils.copyProperties(cc,cc2);
+            BeanUtils.copyProperties(cc, cc2);
         }
-        System.out.println(System.currentTimeMillis()-l2);
+        System.out.println(System.currentTimeMillis() - l2);
 
     }
 
 }
 
 
-class c1{
+class c1 {
+    public String t;
     private String s1;
     private String s2;
     private String s3;
@@ -57,7 +57,7 @@ class c1{
     private String s11;
     private Integer i1;
     private int i2;
-    public String t;
+
     public String getS1() {
         return s1;
     }
@@ -172,7 +172,8 @@ class c1{
 }
 
 
-class c2{
+class c2 {
+    public String t;
     private String s1;
     private String s2;
     private String s3;
@@ -186,7 +187,7 @@ class c2{
     private String s11;
     private Integer i1;
     private int i2;
-    public String t;
+
     public String getS1() {
         return s1;
     }

@@ -6,11 +6,12 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageDecoder;
 
 import java.nio.charset.Charset;
- import java.util.List;
+import java.util.List;
 
 public class TestStringDecoder extends MessageToMessageDecoder<ByteBuf> {
 
-    Charset charset=Charset.defaultCharset();
+    Charset charset = Charset.defaultCharset();
+
     /**
      * Decode from one message to an other. This method will be called for each written message that can be handled
      * by this encoder.
@@ -22,10 +23,10 @@ public class TestStringDecoder extends MessageToMessageDecoder<ByteBuf> {
      */
     @Override
     protected void decode(ChannelHandlerContext ctx, ByteBuf msg, List<Object> out) throws Exception {
-        String data=msg.toString(charset);
-        JSONObject data1=new JSONObject();
-        data1.put("test",data);
-         out.add(data1);
-        System.out.println("decode="+out);
+        String data = msg.toString(charset);
+        JSONObject data1 = new JSONObject();
+        data1.put("test", data);
+        out.add(data1);
+        System.out.println("decode=" + out);
     }
 }

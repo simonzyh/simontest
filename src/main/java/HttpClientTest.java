@@ -9,7 +9,6 @@ import org.apache.http.conn.socket.PlainConnectionSocketFactory;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
-import org.apache.http.util.EntityUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +20,18 @@ public class HttpClientTest {
             .setSocketTimeout(5000)// 二、读取数据超时：SocketTimeout-->指的是连接上一个url，获取response的返回等待时间
             .setConnectionRequestTimeout(5000)
             .build();
+    static PoolingHttpClientConnectionManager cm = null;
+
+    static {
+
+
+        Registry<ConnectionSocketFactory> socketFactoryRegistry = RegistryBuilder.<ConnectionSocketFactory>create()
+                .register("http", new PlainConnectionSocketFactory())
+                .build();
+        cm = new PoolingHttpClientConnectionManager(socketFactoryRegistry);
+        cm.setMaxTotal(200);
+        cm.setDefaultMaxPerRoute(20);
+    }
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -30,7 +41,7 @@ public class HttpClientTest {
     }
 
     private static void test() throws InterruptedException {
-          List<Long> times = new ArrayList<Long>();
+        List<Long> times = new ArrayList<Long>();
 
         for (int i = 0; i < 10; i++) {
 
@@ -61,11 +72,11 @@ public class HttpClientTest {
         HttpPost httppost = new HttpPost(url);
 
         try {
-             CloseableHttpResponse response =httpclient.execute(httppost);
+            CloseableHttpResponse response = httpclient.execute(httppost);
             try {
                 HttpEntity resEntity = response.getEntity();
                 if (resEntity != null) {
-                  //  System.out.println("Response content: " + EntityUtils.toString(resEntity, "UTF-8"));
+                    //  System.out.println("Response content: " + EntityUtils.toString(resEntity, "UTF-8"));
                 }
             } finally {
                 response.close();
@@ -75,20 +86,6 @@ public class HttpClientTest {
         }
         times.add(System.currentTimeMillis() - l);
 
-    }
-
-
-    static PoolingHttpClientConnectionManager cm = null;
-
-    static {
-
-
-        Registry<ConnectionSocketFactory> socketFactoryRegistry = RegistryBuilder.<ConnectionSocketFactory>create()
-                .register("http", new PlainConnectionSocketFactory())
-                .build();
-        cm = new PoolingHttpClientConnectionManager(socketFactoryRegistry);
-        cm.setMaxTotal(200);
-        cm.setDefaultMaxPerRoute(20);
     }
 
     public static CloseableHttpClient getHttpClient() {

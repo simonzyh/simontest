@@ -1,8 +1,6 @@
 package test;
 
 
-import com.alibaba.fastjson.JSON;
-
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
@@ -15,6 +13,8 @@ import java.util.List;
 import java.util.Set;
 
 public class StudentTest implements Serializable {
+    private static ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+
     public static void main(String[] args) {
         Student xiaoming = getBean();
         List<String> validate = validate(xiaoming);
@@ -34,8 +34,6 @@ public class StudentTest implements Serializable {
         bean.setEmail("xiaogangfan163.com");
         return bean;
     }
-
-    private static ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 
     public static <T> List<String> validate(T t) {
         Validator validator = factory.getValidator();

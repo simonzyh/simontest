@@ -52,15 +52,15 @@ public class DateTools {
         // System.out.println(sql);
         while ((line = br.readLine()) != null) {
             String[] data = line.split(";");
-            System.out.println(line+" "+data.length);
-            String barCode=data[3];
-            if(!barcode.contains(barCode)){
+            System.out.println(line + " " + data.length);
+            String barCode = data[3];
+            if (!barcode.contains(barCode)) {
                 continue;
             }
-            String spid=data[2];
-            String unit=data[7];
+            String spid = data[2];
+            String unit = data[7];
             // System.out.println("('"+data[0].trim()+"','"+data[1].trim()+"','"+data[0].trim()+"',0"+","+data[6].replace("¥","").replace("￥","").trim()+",now(),now(),'hnhys',"+data[9].trim()+",1,'"+data[4].trim()+"'),");
-            System.out.println("update wx_goods set sp_id='" + spid + "',unit='"+unit+"' where bar_code='" + barCode + "';");
+            System.out.println("update wx_goods set sp_id='" + spid + "',unit='" + unit + "' where bar_code='" + barCode + "';");
 
         }
 

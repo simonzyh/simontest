@@ -2,7 +2,6 @@ package netty4;
 
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import netty4.model.GjMessage;
@@ -22,9 +21,9 @@ public class HelloClientHandler extends SimpleChannelInboundHandler<String> {
         if (!msg.contains("{")) {
             return;
         }
-        GjMessage request = JSON.parseObject(msg,GjMessage.class);
+        GjMessage request = JSON.parseObject(msg, GjMessage.class);
         GjMessageHead headj = request.getHead();
-        if (headj.getMessageType()!=0) {
+        if (headj.getMessageType() != 0) {
             return;
         }
         System.out.println("收到请求:" + msg);
@@ -35,7 +34,7 @@ public class HelloClientHandler extends SimpleChannelInboundHandler<String> {
         head.setMessageId(headj.getMessageId());
         head.setAppKey("hnhys");
         head.setMessageType(1);
-         head.setSign(conVertTextToMD5("hnhys" + response.getBody()));
+        head.setSign(conVertTextToMD5("hnhys" + response.getBody()));
         response.setHead(head);
         ctx.writeAndFlush(JSON.toJSONString(response) + "\n");
 

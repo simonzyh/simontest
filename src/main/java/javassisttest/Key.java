@@ -1,7 +1,5 @@
 package javassisttest;
 
-import java.util.Arrays;
-
 /**
  * Created by yehua.zyh on 2016/6/17.
  */
@@ -18,7 +16,7 @@ public class Key {
         super();
         this.fromClass = fromClass;
         this.toClass = toClass;
-     }
+    }
 
     @Override
     public boolean equals(Object o) {

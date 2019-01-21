@@ -11,52 +11,82 @@ public class SnowflakeIdWorker {
      */
 
     // ==============================Fields===========================================
-    /** 开始时间截 (2015-01-01) */
+    /**
+     * 开始时间截 (2015-01-01)
+     */
     private final long twepoch = 1489111610226L;
 
-    /** 机器id所占的位数 */
+    /**
+     * 机器id所占的位数
+     */
     private final long workerIdBits = 5L;
 
-    /** 数据标识id所占的位数 */
+    /**
+     * 数据标识id所占的位数
+     */
     private final long dataCenterIdBits = 5L;
 
-    /** 支持的最大机器id，结果是31 (这个移位算法可以很快的计算出几位二进制数所能表示的最大十进制数) */
+    /**
+     * 支持的最大机器id，结果是31 (这个移位算法可以很快的计算出几位二进制数所能表示的最大十进制数)
+     */
     private final long maxWorkerId = -1L ^ (-1L << workerIdBits);
 
-    /** 支持的最大数据标识id，结果是31 */
+    /**
+     * 支持的最大数据标识id，结果是31
+     */
     private final long maxDataCenterId = -1L ^ (-1L << dataCenterIdBits);
 
-    /** 序列在id中占的位数 */
+    /**
+     * 序列在id中占的位数
+     */
     private final long sequenceBits = 12L;
 
-    /** 机器ID向左移12位 */
+    /**
+     * 机器ID向左移12位
+     */
     private final long workerIdShift = sequenceBits;
 
-    /** 数据标识id向左移17位(12+5) */
+    /**
+     * 数据标识id向左移17位(12+5)
+     */
     private final long dataCenterIdShift = sequenceBits + workerIdBits;
 
-    /** 时间截向左移22位(5+5+12) */
+    /**
+     * 时间截向左移22位(5+5+12)
+     */
     private final long timestampLeftShift = sequenceBits + workerIdBits + dataCenterIdBits;
 
-    /** 生成序列的掩码，这里为4095 (0b111111111111=0xfff=4095) */
+    /**
+     * 生成序列的掩码，这里为4095 (0b111111111111=0xfff=4095)
+     */
     private final long sequenceMask = -1L ^ (-1L << sequenceBits);
 
-    /** 工作机器ID(0~31) */
+    /**
+     * 工作机器ID(0~31)
+     */
     private long workerId;
 
-    /** 数据中心ID(0~31) */
+    /**
+     * 数据中心ID(0~31)
+     */
     private long dataCenterId;
 
-    /** 毫秒内序列(0~4095) */
+    /**
+     * 毫秒内序列(0~4095)
+     */
     private long sequence = 1000L;
 
-    /** 上次生成ID的时间截 */
+    /**
+     * 上次生成ID的时间截
+     */
     private long lastTimestamp = -1L;
 
     // ==============================Constructors=====================================
+
     /**
      * 构造函数
-     * @param workerId 工作ID (0~31)
+     *
+     * @param workerId     工作ID (0~31)
      * @param dataCenterId 数据中心ID (0~31)
      */
     public SnowflakeIdWorker(long workerId, long dataCenterId) {
@@ -71,8 +101,22 @@ public class SnowflakeIdWorker {
     }
 
     // ==============================Methods==========================================
+
+    /**
+     * 测试
+     */
+    public static void main(String[] args) {
+        SnowflakeIdWorker idWorker = new SnowflakeIdWorker(1, 1);
+        long startTime = System.nanoTime();
+        long id = idWorker.nextId();
+        System.out.println(id);
+
+
+    }
+
     /**
      * 获得下一个ID (该方法是线程安全的)
+     *
      * @return SnowflakeId
      */
     public synchronized long nextId() {
@@ -106,21 +150,21 @@ public class SnowflakeIdWorker {
         // 为啥时间戳减法向左移动22 位 因为  5位datacenterid
         // 为啥 datCenterID向左移动17位 因为 前面有5位workid  还有12位序列号 就是17位
         //为啥 workerId向左移动12位 因为 前面有12位序列号 就是12位
-         long l1=((timestamp - twepoch) << timestampLeftShift);
-         long l2=dataCenterId << dataCenterIdShift;
-         long l3=workerId << workerIdShift;
-         long l4=sequence;
-        System.out.println((timestamp - twepoch)+" "+dataCenterId+" "+workerId+" "+sequence);
+        long l1 = ((timestamp - twepoch) << timestampLeftShift);
+        long l2 = dataCenterId << dataCenterIdShift;
+        long l3 = workerId << workerIdShift;
+        long l4 = sequence;
+        System.out.println((timestamp - twepoch) + " " + dataCenterId + " " + workerId + " " + sequence);
 
-        System.out.println(l1+" "+l2+" "+l3+" "+l4);
+        System.out.println(l1 + " " + l2 + " " + l3 + " " + l4);
         System.out.println(Long.toBinaryString(l1).length());
         System.out.println(Long.toBinaryString(l2).length());
         System.out.println(Long.toBinaryString(l3).length());
         System.out.println(Long.toBinaryString(l4).length());
 
-        System.out.println(l1|l2);
-        System.out.println(l1|l2|l3);
-        System.out.println(l1|l2|l3|l4);
+        System.out.println(l1 | l2);
+        System.out.println(l1 | l2 | l3);
+        System.out.println(l1 | l2 | l3 | l4);
 
         return ((timestamp - twepoch) << timestampLeftShift) //
                 | (dataCenterId << dataCenterIdShift) //
@@ -130,6 +174,7 @@ public class SnowflakeIdWorker {
 
     /**
      * 阻塞到下一个毫秒，直到获得新的时间戳
+     *
      * @param lastTimestamp 上次生成ID的时间截
      * @return 当前时间戳
      */
@@ -141,22 +186,14 @@ public class SnowflakeIdWorker {
         return timestamp;
     }
 
+    // ==============================Test=============================================
+
     /**
      * 返回以毫秒为单位的当前时间
+     *
      * @return 当前时间(毫秒)
      */
     protected long timeGen() {
         return System.currentTimeMillis();
-    }
-
-    // ==============================Test=============================================
-    /** 测试 */
-    public static void main(String[] args) {
-         SnowflakeIdWorker idWorker = new SnowflakeIdWorker(1, 1);
-        long startTime = System.nanoTime();
-             long id = idWorker.nextId();
-            System.out.println(id);
-
-
     }
 }

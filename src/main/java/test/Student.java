@@ -20,18 +20,15 @@ public class Student implements Serializable {
     private BigDecimal weight;
 
     private String friendName;
+    @Future(message = "生日必须在当前实践之前")
+    private Date birthday;
+    @Pattern(regexp = "^(.+)@(.+)$", message = "邮箱的格式不合法")
+    private String email;
 
     @AssertTrue
     private Boolean isHaveFriend() {
         return friendName != null ? true : false;
     }
-
-    @Future(message = "生日必须在当前实践之前")
-    private Date birthday;
-
-    @Pattern(regexp = "^(.+)@(.+)$", message = "邮箱的格式不合法")
-    private String email;
-
 
     public String getName() {
         return name;

@@ -4,9 +4,6 @@ import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.channel.ChannelStateEvent;
 import org.jboss.netty.channel.MessageEvent;
 import org.jboss.netty.channel.SimpleChannelHandler;
-import test.DateTools;
-
-import java.util.Date;
 
 public class HelloClientHandler extends SimpleChannelHandler {
     static Integer count = 0;

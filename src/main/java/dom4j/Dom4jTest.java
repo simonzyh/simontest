@@ -19,9 +19,9 @@ public class Dom4jTest {
             Document doc = reader.read(uri);
             Element root = doc.getRootElement();
             List<Element> childs1 = root.element("TopicBody").elements();
-            List<Element> childs=childs1.get(0).elements();
+            List<Element> childs = childs1.get(0).elements();
             for (Element element : childs) {
-                 System.out.println(element.getName());
+                System.out.println(element.getName());
 
             }
 
@@ -37,10 +37,10 @@ public class Dom4jTest {
 
             }
 
-            System.out.println(urlConcat("http://localhost:1081/weixinmp/","test.jsp"));
-            System.out.println(urlConcat("http://localhost:1081/weixinmp/","/test.jsp"));
-            System.out.println(urlConcat("http://localhost:1081/weixinmp","test.jsp"));
-            System.out.println(urlConcat("http://localhost:1081/weixinmp","/test.jsp"));
+            System.out.println(urlConcat("http://localhost:1081/weixinmp/", "test.jsp"));
+            System.out.println(urlConcat("http://localhost:1081/weixinmp/", "/test.jsp"));
+            System.out.println(urlConcat("http://localhost:1081/weixinmp", "test.jsp"));
+            System.out.println(urlConcat("http://localhost:1081/weixinmp", "/test.jsp"));
             String userSn = String.format("%20s", 123).replaceAll(" ", "0").substring(16);
 
             System.out.println(userSn);
@@ -50,16 +50,6 @@ public class Dom4jTest {
             e.printStackTrace();
         }
 
-
-    }
-
-    private void handel(Element e, StringBuffer sb) {
-        List<Element> child = e.elements();
-
-        if (child != null && child.size() > 0) {
-
-        }
-        String name = e.getName();
 
     }
 
@@ -104,5 +94,15 @@ public class Dom4jTest {
         imghtml.append("</p>");
         imghtml.append("<p>").append(xml.attributeValue("Title")).append("</p>");
         return imghtml.toString();
+    }
+
+    private void handel(Element e, StringBuffer sb) {
+        List<Element> child = e.elements();
+
+        if (child != null && child.size() > 0) {
+
+        }
+        String name = e.getName();
+
     }
 }

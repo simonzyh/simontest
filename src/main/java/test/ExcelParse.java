@@ -3,7 +3,6 @@ package test;
 import com.alibaba.fastjson.JSON;
 import org.apache.commons.lang.StringUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -13,11 +12,14 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ExcelParse {
 
-   static  String barcode = "110900055," +
+    static String barcode = "110900055," +
             "702000018," +
             "602200235," +
             "601300063," +
@@ -55,23 +57,23 @@ public class ExcelParse {
             "120200053," +
             "301610070,";
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         String filePath = "/Users/ljf/zyh/goods.xlsx";
 
-        List<List<String>> data=getData(filePath);
+        List<List<String>> data = getData(filePath);
 
-        for(List<String> row:data){
-              String barCode=row.get(2);
-            if(!barcode.contains(barCode)||StringUtils.isBlank(barCode)){
+        for (List<String> row : data) {
+            String barCode = row.get(2);
+            if (!barcode.contains(barCode) || StringUtils.isBlank(barCode)) {
                 continue;
             }
-            String spid=row.get(1);
-            String unit=row.get(7);
-            String spec=row.get(5);
-            Map<String,Object> attribute=new HashMap<>();
-            attribute.put("spid",spid);
-             // System.out.println("('"+data[0].trim()+"','"+data[1].trim()+"','"+data[0].trim()+"',0"+","+data[6].replace("¥","").replace("￥","").trim()+",now(),now(),'hnhys',"+data[9].trim()+",1,'"+data[4].trim()+"'),");
-            System.out.println("update wx_goods set spec='"+spec+"',attribute='" + JSON.toJSONString(attribute) + "',unit='"+unit+"' where bar_code='" + barCode + "';");
+            String spid = row.get(1);
+            String unit = row.get(7);
+            String spec = row.get(5);
+            Map<String, Object> attribute = new HashMap<>();
+            attribute.put("spid", spid);
+            // System.out.println("('"+data[0].trim()+"','"+data[1].trim()+"','"+data[0].trim()+"',0"+","+data[6].replace("¥","").replace("￥","").trim()+",now(),now(),'hnhys',"+data[9].trim()+",1,'"+data[4].trim()+"'),");
+            System.out.println("update wx_goods set spec='" + spec + "',attribute='" + JSON.toJSONString(attribute) + "',unit='" + unit + "' where bar_code='" + barCode + "';");
 
         }
     }
@@ -111,7 +113,7 @@ public class ExcelParse {
                 } else {
                     break;
                 }
-                 list.add(rowdata);
+                list.add(rowdata);
             }
         }
         return list;
@@ -119,20 +121,20 @@ public class ExcelParse {
 
 
     //读取excel
-    public static Workbook readExcel(String filePath){
+    public static Workbook readExcel(String filePath) {
         Workbook wb = null;
-        if(filePath==null){
+        if (filePath == null) {
             return null;
         }
         String extString = filePath.substring(filePath.lastIndexOf("."));
         InputStream is = null;
         try {
             is = new FileInputStream(filePath);
-            if(".xls".equals(extString)){
+            if (".xls".equals(extString)) {
                 return wb = new HSSFWorkbook(is);
-            }else if(".xlsx".equals(extString)){
+            } else if (".xlsx".equals(extString)) {
                 return wb = new XSSFWorkbook(is);
-            }else{
+            } else {
                 return wb = null;
             }
 

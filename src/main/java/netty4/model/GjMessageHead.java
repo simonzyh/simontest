@@ -4,19 +4,18 @@ package netty4.model;
 /**
  * 消息头
  */
- public class GjMessageHead implements java.io.Serializable {
+public class GjMessageHead implements java.io.Serializable {
+    /**
+     * 状态 1成功。0 失败表示出现业务未捕获的异常
+     * 一般用在响应消息中
+     */
+    int status;
     /**
      * 消息id 单一chennel 唯一 用于request 和response 的对应
      *
      * @必传
      */
     private String messageId;
-    /**
-     * 状态 1成功。0 失败表示出现业务未捕获的异常
-     * 一般用在响应消息中
-     */
-    int status;
-
     /**
      * key 用于签名， 确定企业身份
      */
@@ -34,7 +33,6 @@ package netty4.model;
     /**
      * 请求业务类型
      * 约定  class.method
-     *
      */
     private String requestMethod;
 

@@ -6,8 +6,6 @@ import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.codec.DelimiterBasedFrameDecoder;
 import io.netty.handler.codec.Delimiters;
-import io.netty.handler.codec.string.StringDecoder;
-import io.netty.handler.codec.string.StringEncoder;
 
 public class HelloServerInitializer extends ChannelInitializer<SocketChannel> {
 
@@ -22,7 +20,7 @@ public class HelloServerInitializer extends ChannelInitializer<SocketChannel> {
         pipeline.addLast("decoder", new TestStringDecoder());
         pipeline.addLast("encoder", new TestStringEncoder());
 
-         // 自己的逻辑Handler
+        // 自己的逻辑Handler
         pipeline.addLast("handler", new HelloServerHandler());
     }
 }

@@ -4,7 +4,7 @@ package netty4.model;
 /**
  * netty消息body
  */
- public class GjMessage implements java.io.Serializable {
+public class GjMessage implements java.io.Serializable {
 
     private GjMessageHead head;
 
