@@ -12,7 +12,7 @@ import java.util.zip.ZipOutputStream;
 public class FileUtils {
 
     /**
-     * ¸ù¾İ¶à¸öÊäÈëµÄinputstream ´ò³ÉzipÎÄ¼şÑ¹Ëõ°ü
+     * æ ¹æ®å¤šä¸ªè¾“å…¥çš„inputstream æ‰“æˆzipæ–‡ä»¶å‹ç¼©åŒ…
      *
      * @param inputStreamMap
      * @return
@@ -20,7 +20,7 @@ public class FileUtils {
     public static void zip(Map<String, InputStream> inputStreamMap) throws IOException {
         byte[] buf = new byte[1024];
 
-        //´ò³ÉµÄzip°üÊä³öµ½×Ö½ÚÁ÷
+        //æ‰“æˆçš„zipåŒ…è¾“å‡ºåˆ°å­—èŠ‚æµ
         OutputStream outputStream = new FileOutputStream(new File("/Users/yehua.zyh/test.zip"));
         ZipOutputStream zos = null;
         ZipEntry ze = null;
@@ -61,7 +61,7 @@ public class FileUtils {
     }
 
     /**
-     * ´Óinpuerstream ÖĞ¶ÁÈ¡byteÊı×é
+     * ä»inpuerstream ä¸­è¯»å–byteæ•°ç»„
      *
      * @param inputStream
      * @return

@@ -1,8 +1,20 @@
 package bytebuddy;
 
-public interface TestService {
+public class TestService {
 
-    void test1(String s);
+    public void test1(String s) {
+        System.out.println(t() + s);
+    }
 
-    String test2(String s);
+    ;
+
+    public String test2(String s) {
+        return "TestService test12" + s;
+    }
+
+    private String t() {
+        return "TestService test1";
+    }
+
+
 }

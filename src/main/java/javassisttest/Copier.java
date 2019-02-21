@@ -6,24 +6,24 @@ import com.google.common.cache.CacheBuilder;
 import java.util.concurrent.ExecutionException;
 
 /**
- * ¶ÔÏóÊôĞÔcopy ËùÓĞ¿É¸´ÖÆÊôĞÔÈ«²¿copy
- * or merge Ö»Òª²»ÎªnullµÄ²Å¸´ÖÆ
+ * å¯¹è±¡å±æ€§copy æ‰€æœ‰å¯å¤åˆ¶å±æ€§å…¨éƒ¨copy
+ * or merge åªè¦ä¸ä¸ºnullçš„æ‰å¤åˆ¶
  */
 public class Copier {
 
 
-    // copyÀàµÄ»º´æ£¬ÈİÁ¿1024
+    // copyç±»çš„ç¼“å­˜ï¼Œå®¹é‡1024
     private static Cache<Key, Copy> copierCache = CacheBuilder.newBuilder().maximumSize(1024).build();
 
     /**
-     * ¶ÔÏóÊôĞÔ¿½±´
+     * å¯¹è±¡å±æ€§æ‹·è´
      *
-     * @param from             Ô´¶ÔÏó
-     * @param to               Ä¿±ê¶ÔÏó
-     * @param ignoreProperties ºöÂÔÊôĞÔÖµ
-     * @param <F>              Ô´¶ÔÏóÀàĞÍ
-     * @param <T>              Ä¿±ê¶ÔÏóÀàĞÍ
-     * @return Ä¿±ê¶ÔÏó£¬Í¬µÚ¶ş¸ö²ÎÊıto
+     * @param from             æºå¯¹è±¡
+     * @param to               ç›®æ ‡å¯¹è±¡
+     * @param ignoreProperties å¿½ç•¥å±æ€§å€¼
+     * @param <F>              æºå¯¹è±¡ç±»å‹
+     * @param <T>              ç›®æ ‡å¯¹è±¡ç±»å‹
+     * @return ç›®æ ‡å¯¹è±¡ï¼ŒåŒç¬¬äºŒä¸ªå‚æ•°to
      */
     public static <F, T> T copy(final F from, final T to, final String ignoreProperties) {
         Copy copier = getCopy(from, to);
@@ -37,14 +37,14 @@ public class Copier {
     }
 
     /**
-     * ¶ÔÏóÊôĞÔ¿½±´
+     * å¯¹è±¡å±æ€§æ‹·è´
      *
-     * @param from             Ô´¶ÔÏó
-     * @param to               Ä¿±ê¶ÔÏó
-     * @param ignoreProperties ºöÂÔÊôĞÔÖµ
-     * @param <F>              Ô´¶ÔÏóÀàĞÍ
-     * @param <T>              Ä¿±ê¶ÔÏóÀàĞÍ
-     * @return Ä¿±ê¶ÔÏó£¬Í¬µÚ¶ş¸ö²ÎÊıto
+     * @param from             æºå¯¹è±¡
+     * @param to               ç›®æ ‡å¯¹è±¡
+     * @param ignoreProperties å¿½ç•¥å±æ€§å€¼
+     * @param <F>              æºå¯¹è±¡ç±»å‹
+     * @param <T>              ç›®æ ‡å¯¹è±¡ç±»å‹
+     * @return ç›®æ ‡å¯¹è±¡ï¼ŒåŒç¬¬äºŒä¸ªå‚æ•°to
      */
     public static <F, T> T merge(final F from, final T to, final String ignoreProperties) {
 

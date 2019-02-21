@@ -1,78 +1,67 @@
 import com.alibaba.fastjson.JSON;
 import netty4.HelloClient;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.core.LocalVariableTableParameterNameDiscoverer;
 import org.springframework.core.ParameterNameDiscoverer;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.lang.reflect.Method;
+import java.math.BigDecimal;
 import java.sql.*;
+import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class JdbcTest {
 
-    private static ExecutorService executorService = Executors.newFixedThreadPool(3);
 
-    public static void main1(String[] args) throws Exception, SQLException, FileNotFoundException {
-        Class.forName("com.mysql.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://10.8.24.30:20000/analysis_report?useSSL=false&autoReconnect=true&tinyInt1isBit=false&useUnicode=true&characterEncoding=utf8", "root", "gjHealth@2018_test");
-        BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("/Users/ljf/zyh/oa_expense_2018-09-07.sql")));
-        String line = null;
-        int i = 0;
-        StringBuffer sql = new StringBuffer();
-        Statement statement = con.createStatement();
 
-        while ((line = br.readLine()) != null) {
-            if (line.startsWith("#") || line.startsWith("/")) {
-                continue;
+    public static void main(String[] args) throws  Exception, SQLException, InterruptedException, NoSuchMethodException {
+         BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(new File("/Users/ljf/Downloads/商品佣金录入-20190220.csv"))));
+         String line=null;
+        Map<String,String[]>  stringMap=getGoodsPrice() ;
+        Set<String> s=new HashSet<>();
+
+        while ((line=br.readLine())!=null){
+             String[] arr=line.split(";");
+             String countryCn=arr[0];
+             Integer countryId=0;
+             if("泰国".equals(countryCn)){
+                 countryId=3;
+             }else if("沙特阿拉伯".equals(countryCn)){
+                 countryId=2;
+             }
+
+             String goodsCode=arr[1];
+            if(!s.add(countryId+","+goodsCode)){
+                //System.out.println(countryId+","+goodsCode+" 重复");
+               continue;
             }
-            sql.append(line + " ");
-            if (line.endsWith(";")) {
-                System.out.println(i++);
-                statement.execute(sql.toString());
-                sql.delete(0, sql.length());
-            }
 
+            String ratio=( new BigDecimal(arr[2].replace("%","")).divide(new BigDecimal(100),4,BigDecimal.ROUND_HALF_UP).doubleValue())+"";
+          String[] pricedata=stringMap.get(countryId+","+goodsCode);
+            String title=pricedata[2];
+            String price=pricedata[3];
+           //  System.out.println(countryId+" "+goodsCode+" "+ratio+" "+title+" "+price);
+          String sql="  INSERT INTO `orko_distribution`.`distribution_goods_ratio`( `goods_code`, `create_at`, `update_at`, `is_delete`, `goods_name`, `goods_price`, `goods_pic`, `status`, `commission_ratio`, `country_id`, `update_user`) VALUES (";
+             sql+="'"+goodsCode+"' , now(), now(),0 ,";
+              sql+= "'"+    title+"',"+ price+", NULL, 1, "+ratio+", "+countryId+", NULL) ;" ;
+              System.out.println(sql);
+         }
 
-        }
     }
 
-    public static void test(Integer i1) {
 
-    }
-
-    public static void main(String[] args) throws ClassNotFoundException, SQLException, InterruptedException, NoSuchMethodException {
-        System.out.println(HelloClient.class.getPackage() + "." + HelloClient.class.getName());
-
-        Method[] method = JdbcTest.class.getMethods();
-        for (Method method1 : method) {
-            System.out.print(method1.getName() + " ");
-            ParameterNameDiscoverer pnd = new LocalVariableTableParameterNameDiscoverer();
-
-            System.out.print(JSON.toJSONString(pnd.getParameterNames(method1)));
-
-            System.out.println();
+    private static Map<String,String[]> getGoodsPrice() throws Exception{
+        BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(new File("/Users/ljf/Downloads/goodsprice.txt"))));
+        String line=null;
+        Map<String,String[]> res=new HashMap<>();
+         while ((line=br.readLine())!=null){
+             String[] data=line.split("\t");
+            // System.out.println(JSON.toJSONString(data));
+             res.put(data[0]+","+data[1],data);
         }
-        System.out.println(JSON.parseObject("1", Integer.class));
-        Class.forName("oracle.jdbc.driver.OracleDriver");
-        String url = "jdbc:oracle:thin:@//192.168.0.215:1521/bjhys"; //连接字符串
 
-        String username = "gaoji"; //用户名
-
-        String password = "gaoji_2018"; //密码
-
-        Connection conn = DriverManager.getConnection(url, username, password);
-        ResultSet resultSet = conn.createStatement().executeQuery(" select * from  bjhys.pt_orderhz");
-        ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
-        int columnCount = resultSetMetaData.getColumnCount();
-        while (resultSet.next()) {
-            StringBuffer data = new StringBuffer();
-            for (int i = 1; i <= columnCount; i++) {
-                data.append(resultSetMetaData.getColumnName(i) + " =" + resultSet.getObject(i) + "  ");
-            }
-        }
+        return res;
     }
 }
