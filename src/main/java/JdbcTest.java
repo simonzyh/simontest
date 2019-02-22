@@ -21,7 +21,6 @@ public class JdbcTest {
          String line=null;
         Map<String,String[]>  stringMap=getGoodsPrice() ;
         Set<String> s=new HashSet<>();
-
         while ((line=br.readLine())!=null){
              String[] arr=line.split(";");
              String countryCn=arr[0];

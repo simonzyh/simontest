@@ -50,6 +50,8 @@ public class Jdk8test {
         Function<String, String> backToString = toInteger.andThen(String::valueOf);
         System.out.println(backToString.apply("123"));     // "123"
         toInteger.apply("12");
+        List orderCountList=new ArrayList();
+
     }
 
     public static void optionalTest() {
