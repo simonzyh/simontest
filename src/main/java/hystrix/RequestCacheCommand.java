@@ -3,7 +3,6 @@ package hystrix;
 import com.netflix.hystrix.HystrixCommand;
 import com.netflix.hystrix.HystrixCommandGroupKey;
 import com.netflix.hystrix.strategy.concurrency.HystrixRequestContext;
-import org.junit.Assert;
 
 public class RequestCacheCommand extends HystrixCommand<String> {
     private final int id;
@@ -28,24 +27,30 @@ public class RequestCacheCommand extends HystrixCommand<String> {
     public static void main(String[] args) {
         HystrixRequestContext context = HystrixRequestContext.initializeContext();
 
-        try {
-            RequestCacheCommand command2a = new RequestCacheCommand(2);
-            RequestCacheCommand command2b = new RequestCacheCommand(2);
-            System.out.println(command2a.execute());
-            //isResponseFromCache判定是否是在缓存中获取结果
-            System.out.println(command2a.isResponseFromCache());
-            System.out.println(command2b.execute());
-            System.out.println(command2b.isResponseFromCache());
-        } finally {
-            context.shutdown();
-        }
-        context = HystrixRequestContext.initializeContext();
-        try {
-            RequestCacheCommand command3b = new RequestCacheCommand(2);
-            System.out.println(command3b.execute());
-            System.out.println(command3b.isResponseFromCache());
-        } finally {
-            context.shutdown();
-        }
+        RequestCacheCommand command2a = new RequestCacheCommand(2);
+        RequestCacheCommand command2b = new RequestCacheCommand(2);
+        System.out.println(command2a.execute());
+        //isResponseFromCache判定是否是在缓存中获取结果
+        System.out.println(command2a.isResponseFromCache());
+        System.out.println(command2b.execute());
+        System.out.println(command2b.isResponseFromCache());
+
+        new Thread() {
+
+            @Override
+            public void run() {
+                //HystrixRequestContext context = HystrixRequestContext.initializeContext();
+
+                RequestCacheCommand command3b = new RequestCacheCommand(2);
+                System.out.println("command3b " + command3b.execute());
+                System.out.println("command3b " + command3b.isResponseFromCache());
+            }
+        }.start();
+
+        // context = HystrixRequestContext.initializeContext();
+        RequestCacheCommand command3b = new RequestCacheCommand(2);
+        System.out.println(command3b.execute());
+        System.out.println(command3b.isResponseFromCache());
+        //  context.shutdown();
     }
 }
