@@ -44,7 +44,7 @@ public class JdbcTest {
            //  System.out.println(countryId+" "+goodsCode+" "+ratio+" "+title+" "+price);
           String sql="  INSERT INTO `orko_distribution`.`distribution_goods_ratio`( `goods_code`, `create_at`, `update_at`, `is_delete`, `goods_name`, `goods_price`, `goods_pic`, `status`, `commission_ratio`, `country_id`, `update_user`) VALUES (";
              sql+="'"+goodsCode+"' , now(), now(),0 ,";
-              sql+= "'"+    title+"',"+ price+", NULL, 1, "+ratio+", "+countryId+", NULL) ;" ;
+              sql+= "'"+    title+"',"+ price+", NULL, 0, "+ratio+", "+countryId+", NULL) ;" ;
               System.out.println(sql);
          }
 

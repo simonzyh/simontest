@@ -464,6 +464,16 @@
             <artifactId>hystrix-metrics-event-stream</artifactId>
             <version>${hystrix-metrics-event-stream.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.20</version>
+        </dependency>
+        <dependency>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
+            <version>3.4.2</version>
+        </dependency>
     </dependencies>
 
 </project>

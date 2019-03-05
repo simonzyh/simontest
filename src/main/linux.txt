@@ -1,1 +1,18 @@
 cat q.txt|awk -F"|" '{print $1}' | awk -F"."   '{a[$1]++}END{for(i in a){print i,a[i] | "sort -n -k 1"}}'
+
+
+#!/bin/sh
+ps aux | grep distribution-admin-web | awk '{print $2}' | xargs kill -9
+nohup java \
+-server    \
+-Xms1024m   \
+-Xmx1024m   \
+-XX:MetaspaceSize=128m \
+-XX:MaxMetaspaceSize=256m \
+-Xss512k   \
+-XX:+UseConcMarkSweepGC \
+-XX:CMSInitiatingOccupancyFraction=70 \
+-Xloggc:/home/www/app/distribution-admin/logs/gc-%t.log \
+-XX:+PrintGCDetails \
+-XX:+PrintGCDateStamps \
+-jar distribution-admin-web-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod >/dev/null 2>&1 &

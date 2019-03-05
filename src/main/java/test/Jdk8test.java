@@ -15,6 +15,7 @@ import com.google.common.collect.Maps;
 
 import java.io.*;
 import java.util.*;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -117,26 +118,13 @@ public class Jdk8test {
         // predicateTest();
         //functionTest();
         //streamTest();
-        BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(new File("d:\\bmd.txt"))));
-        List<String> old = new ArrayList<>();
-        String readline = null;
-        while ((readline = br.readLine()) != null) {
-            old.add(readline);
-        }
+        Semaphore sync = new Semaphore(1);
+        System.out.println(sync.availablePermits());
 
-        Set<String> set = new HashSet<>();
-        BufferedReader br1 = new BufferedReader(new InputStreamReader(new FileInputStream(new File("d:\\itemList.txt"))));
-        while ((readline = br1.readLine()) != null) {
-            if (!old.contains(readline)) {
-                set.add(readline);
-            }
-        }
-
-        PrintWriter pw = new PrintWriter("d:\\newitem.txt");
-        for (String str : set) {
-            pw.println(str);
-        }
-        pw.flush();
+        sync.release();
+        sync.release();
+        sync.acquire();
+        System.out.println(sync.availablePermits());
     }
 
     public void lambdaTest() {
