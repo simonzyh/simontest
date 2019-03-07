@@ -18,12 +18,6 @@ public class HelloWorldCommand extends HystrixCommand<String> {
         this.name = name;
     }
 
-    @Override
-    protected String run() {
-        // 依赖逻辑封装在run()方法中
-        return "Hello " + name + " thread:" + Thread.currentThread().getName();
-    }
-
     //调用实例
     public static void main(String[] args) throws Exception {
         //每个Command对象只能调用一次,不可以重复调用,
@@ -49,11 +43,11 @@ public class HelloWorldCommand extends HystrixCommand<String> {
             public void call(String result) {
                 //执行结果处理,result 为HelloWorldCommand返回的结果
                 //用户对结果做二次处理.
-                System.out.println("call==="+result);
+                System.out.println("call===" + result);
             }
         });
 
-       //注册完整执行生命周期事件
+        //注册完整执行生命周期事件
         fs.subscribe(new Observer<String>() {
             @Override
             public void onCompleted() {
@@ -74,6 +68,12 @@ public class HelloWorldCommand extends HystrixCommand<String> {
                 System.out.println("onNext: " + v);
             }
         });
+    }
+
+    @Override
+    protected String run() {
+        // 依赖逻辑封装在run()方法中
+        return "Hello " + name + " thread:" + Thread.currentThread().getName();
     }
 
 }

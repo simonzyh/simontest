@@ -13,7 +13,6 @@ package test;
 
 import com.google.common.collect.Maps;
 
-import java.io.*;
 import java.util.*;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
@@ -51,7 +50,7 @@ public class Jdk8test {
         Function<String, String> backToString = toInteger.andThen(String::valueOf);
         System.out.println(backToString.apply("123"));     // "123"
         toInteger.apply("12");
-        List orderCountList=new ArrayList();
+        List orderCountList = new ArrayList();
 
     }
 

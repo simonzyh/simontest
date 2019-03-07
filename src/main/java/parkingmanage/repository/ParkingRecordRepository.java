@@ -38,10 +38,11 @@ public class ParkingRecordRepository {
 
     /**
      * 根据id查询停车记录
+     *
      * @param id
      * @return
      */
-    public ParkingRecordModel getById(Long id){
+    public ParkingRecordModel getById(Long id) {
         return null;
     }
 

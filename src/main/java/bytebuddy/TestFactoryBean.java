@@ -4,12 +4,12 @@ import net.bytebuddy.ByteBuddy;
 import net.bytebuddy.dynamic.loading.ClassLoadingStrategy;
 import net.bytebuddy.implementation.MethodDelegation;
 import net.bytebuddy.matcher.ElementMatchers;
-import org.apache.poi.ss.formula.functions.T;
 import org.springframework.beans.factory.FactoryBean;
 
 public class TestFactoryBean<T> implements FactoryBean<T> {
 
     private Class<T> tClass;
+
     public static void main(String[] args) {
         ProxyHandle proxyHandle = new ProxyHandle();
         TestService testService = newProxy(TestService.class, proxyHandle);

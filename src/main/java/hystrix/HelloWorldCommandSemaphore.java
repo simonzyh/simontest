@@ -14,16 +14,16 @@ public class HelloWorldCommandSemaphore extends HystrixCommand<String> {
         this.name = name;
     }
 
-    @Override
-    protected String run() throws Exception {
-        return "HystrixThread:" + Thread.currentThread().getName();
-    }
-
     public static void main(String[] args) throws Exception {
         HelloWorldCommand command = new HelloWorldCommand("semaphore");
         String result = command.execute();
         System.out.println(result);
         System.out.println("MainThread:" + Thread.currentThread().getName());
+    }
+
+    @Override
+    protected String run() throws Exception {
+        return "HystrixThread:" + Thread.currentThread().getName();
     }
 }
 /**

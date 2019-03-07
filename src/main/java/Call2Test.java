@@ -1,5 +1,3 @@
-
-
 import java.util.concurrent.*;
 import java.util.function.Function;
 
@@ -76,12 +74,9 @@ class CallRunnable<T, R> implements Runnable {
  */
 class CallContext<T, R> {
     CountDownLatch countDownLatch = new CountDownLatch(1);
-
-    private long timeOut = 60;
-
     Function<T, R> function;
     T param;
-
+    private long timeOut = 60;
     private R r;
 
     /**

@@ -5,6 +5,33 @@ import java.util.function.Function;
  * Future 实现多个任务异步调用
  */
 public class CallTest {
+    //从db查询数据
+    static Function<Integer, String> queryUserFormDb = new Function<Integer, String>() {
+        @Override
+        public String apply(Integer integer) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            //此处查询数据库操作
+            return "数据库返回：" + integer + "--" + System.currentTimeMillis();
+        }
+    };
+    //从rpc查询数据
+    static Function<Integer, String> queryUserFormRpc = new Function<Integer, String>() {
+        @Override
+        public String apply(Integer integer) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            //此处查询数据库操作
+            return "RPC返回  ：" + integer + "--" + System.currentTimeMillis();
+        }
+    };
     //异步执行任务的poll
     private static ExecutorService executor = Executors.newFixedThreadPool(20); //使用线程池
 
@@ -48,33 +75,5 @@ public class CallTest {
         System.out.println("调用结束：userName1=" + userName1 + " userName2=" + userName2 + " time=" + (System.currentTimeMillis() - lstart));
 
     }
-
-    //从db查询数据
-      static Function<Integer, String> queryUserFormDb = new Function<Integer, String>() {
-        @Override
-        public String apply(Integer integer) {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-            //此处查询数据库操作
-            return "数据库返回：" + integer + "--" + System.currentTimeMillis();
-        }
-    };
-    //从rpc查询数据
-      static Function<Integer, String> queryUserFormRpc = new Function<Integer, String>() {
-        @Override
-        public String apply(Integer integer) {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            //此处查询数据库操作
-            return "RPC返回  ：" + integer + "--" + System.currentTimeMillis();
-        }
-    };
 
 }

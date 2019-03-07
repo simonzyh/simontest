@@ -17,6 +17,13 @@ public class HelloWorldCommandFallback extends HystrixCommand<String> {
         this.name = name;
     }
 
+    public static void main(String[] args) throws Exception {
+        HelloWorldCommandFallback command = new HelloWorldCommandFallback("test-Fallback");
+        String result = command.execute();
+        command.observe();
+        System.out.println("result=" + result);
+    }
+
     @Override
     protected String getFallback() {
         return "exeucute Falled";
@@ -27,13 +34,6 @@ public class HelloWorldCommandFallback extends HystrixCommand<String> {
         //sleep 1 秒,调用会超时
         TimeUnit.MILLISECONDS.sleep(1000);
         return "Hello " + name + " thread:" + Thread.currentThread().getName();
-    }
-
-    public static void main(String[] args) throws Exception {
-        HelloWorldCommandFallback command = new HelloWorldCommandFallback("test-Fallback");
-        String result = command.execute();
-        command.observe();
-        System.out.println("result="+result);
     }
 }
 /* 运行结果:getFallback() 调用运行

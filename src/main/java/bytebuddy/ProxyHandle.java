@@ -15,7 +15,7 @@ public class ProxyHandle {
 
         Object arg0 = args[0];
         if (returnType.equals(void.class)) {
-             System.out.println(arg0 + "proxy====");
+            System.out.println(arg0 + "proxy====");
             return null;
         }
 

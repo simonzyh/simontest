@@ -12,18 +12,6 @@ public class RequestCacheCommand extends HystrixCommand<String> {
         this.id = id;
     }
 
-    @Override
-    protected String run() throws Exception {
-        System.out.println(Thread.currentThread().getName() + " execute id=" + id);
-        return "executed=" + id;
-    }
-
-    //重写getCacheKey方法,实现区分不同请求的逻辑
-    @Override
-    protected String getCacheKey() {
-        return String.valueOf(id);
-    }
-
     public static void main(String[] args) {
         HystrixRequestContext context = HystrixRequestContext.initializeContext();
 
@@ -52,5 +40,17 @@ public class RequestCacheCommand extends HystrixCommand<String> {
         System.out.println(command3b.execute());
         System.out.println(command3b.isResponseFromCache());
         //  context.shutdown();
+    }
+
+    @Override
+    protected String run() throws Exception {
+        System.out.println(Thread.currentThread().getName() + " execute id=" + id);
+        return "executed=" + id;
+    }
+
+    //重写getCacheKey方法,实现区分不同请求的逻辑
+    @Override
+    protected String getCacheKey() {
+        return String.valueOf(id);
     }
 }

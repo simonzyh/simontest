@@ -1,9 +1,7 @@
 package parkingmanage.service;
 
 
-import parkingmanage.constants.CartType;
 import parkingmanage.model.ChargeRecordModel;
-import parkingmanage.model.ChargeTypeModel;
 import parkingmanage.model.ParkingRecordModel;
 import parkingmanage.vo.Response;
 
@@ -21,7 +19,7 @@ public interface ChargeService {
      *
      * @param parkingRecordModel 当前计费记录对应的停车记录
      */
-     ChargeRecordModel submit(ParkingRecordModel parkingRecordModel);
+    ChargeRecordModel submit(ParkingRecordModel parkingRecordModel);
 
     /**
      * 支付成功 在出场时支付完成后调用
@@ -34,6 +32,7 @@ public interface ChargeService {
 
     /**
      * 查询指定日期所有的停车费用
+     *
      * @param date
      * @return
      */
