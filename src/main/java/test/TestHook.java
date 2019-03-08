@@ -8,6 +8,7 @@ public class TestHook {
             System.out.println("exec hook start");
             try {
                 Thread.sleep(1000 * 10);
+                Thread.yield();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
