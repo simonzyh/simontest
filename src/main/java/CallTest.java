@@ -1,9 +1,12 @@
+import lombok.Getter;
+
 import java.util.concurrent.*;
 import java.util.function.Function;
 
 /**
  * Future 实现多个任务异步调用
  */
+@Getter
 public class CallTest {
     //从db查询数据
     static Function<Integer, String> queryUserFormDb = new Function<Integer, String>() {
