@@ -1,4 +1,4 @@
-package proxy.cglib;
+package ssd.proxy.cglib;
 
 public class Client {
 

@@ -1,4 +1,4 @@
-package rxjava;
+package ssd.rxjava;
 
 import rx.Observable;
 import rx.Observer;

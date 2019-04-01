@@ -1,4 +1,4 @@
-package io.netty.handler;
+package ssd.io.netty.handler;
 
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.channel.ChannelStateEvent;

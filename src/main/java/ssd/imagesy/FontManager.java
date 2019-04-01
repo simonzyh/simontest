@@ -1,7 +1,5 @@
 package ssd.imagesy;
 
-import ssd.imagesy.FontLoader;
-
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;

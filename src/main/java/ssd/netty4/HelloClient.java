@@ -1,4 +1,4 @@
-package netty4;
+package ssd.netty4;
 
 
 import com.alibaba.fastjson.JSON;
@@ -7,8 +7,8 @@ import io.netty.channel.Channel;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
-import netty4.model.GjMessage;
-import netty4.model.GjMessageHead;
+import ssd.netty4.model.GjMessage;
+import ssd.netty4.model.GjMessageHead;
 
 import java.io.BufferedReader;
 import java.io.IOException;

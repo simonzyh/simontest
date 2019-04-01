@@ -5,7 +5,6 @@ import net.bytebuddy.dynamic.loading.ClassLoadingStrategy;
 import net.bytebuddy.implementation.MethodDelegation;
 import net.bytebuddy.matcher.ElementMatchers;
 import org.springframework.beans.factory.FactoryBean;
-import ssd.bytebuddy.ProxyHandle;
 
 public class TestFactoryBean<T> implements FactoryBean<T> {
 

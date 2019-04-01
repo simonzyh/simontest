@@ -1,4 +1,4 @@
-package storm.bolts;
+package ssd.storm.bolts;
 
 import backtype.storm.task.OutputCollector;
 import backtype.storm.task.TopologyContext;

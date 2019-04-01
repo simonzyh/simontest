@@ -1,4 +1,4 @@
-package netty;
+package ssd.netty;
 
 public class Persons {
     private String name;

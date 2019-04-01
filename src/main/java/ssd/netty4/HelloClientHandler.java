@@ -1,16 +1,17 @@
-package netty4;
+package ssd.netty4;
 
 
 import com.alibaba.fastjson.JSON;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import netty4.model.GjMessage;
-import netty4.model.GjMessageHead;
 import org.apache.commons.httpclient.util.DateUtil;
+import ssd.netty4.model.GjMessage;
+import ssd.netty4.model.GjMessageHead;
 
 import java.util.Date;
 
-import static netty4.HelloClient.conVertTextToMD5;
+import static ssd.netty4.HelloClient.conVertTextToMD5;
+
 
 public class HelloClientHandler extends SimpleChannelInboundHandler<String> {
 

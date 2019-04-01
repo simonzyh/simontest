@@ -1,4 +1,4 @@
-package netty;
+package ssd.netty;
 
 import org.jboss.netty.bootstrap.ClientBootstrap;
 import org.jboss.netty.channel.ChannelFuture;

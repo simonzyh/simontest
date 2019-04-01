@@ -1,6 +1,5 @@
-package io.netty;
+package ssd.io.netty;
 
-import io.netty.handler.HelloServerHandler;
 import org.jboss.netty.bootstrap.ServerBootstrap;
 import org.jboss.netty.channel.ChannelPipeline;
 import org.jboss.netty.channel.ChannelPipelineFactory;
@@ -8,6 +7,7 @@ import org.jboss.netty.channel.Channels;
 import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
 import org.jboss.netty.handler.codec.serialization.ClassResolvers;
 import org.jboss.netty.handler.codec.serialization.ObjectDecoder;
+import ssd.io.netty.handler.HelloServerHandler;
 
 import java.net.InetSocketAddress;
 import java.util.concurrent.Executors;

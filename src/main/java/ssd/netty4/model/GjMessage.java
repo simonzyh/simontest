@@ -1,4 +1,4 @@
-package netty4.model;
+package ssd.netty4.model;
 
 
 /**

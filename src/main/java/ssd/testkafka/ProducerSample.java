@@ -1,4 +1,4 @@
-package testkafka;
+package ssd.testkafka;
 
 /**
  * User: simon

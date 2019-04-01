@@ -1,4 +1,4 @@
-package javassisttest;
+package ssd.javassisttest;
 
 /**
  * Created by yehua.zyh on 2016/6/17.

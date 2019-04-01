@@ -1,4 +1,4 @@
-package javassisttest;
+package ssd.javassisttest;
 
 import lombok.Data;
 import org.springframework.beans.BeanUtils;

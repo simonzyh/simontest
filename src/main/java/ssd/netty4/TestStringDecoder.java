@@ -1,4 +1,4 @@
-package netty4;
+package ssd.netty4;
 
 import com.alibaba.fastjson.JSONObject;
 import io.netty.buffer.ByteBuf;

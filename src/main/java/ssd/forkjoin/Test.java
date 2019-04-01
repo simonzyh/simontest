@@ -1,7 +1,5 @@
 package ssd.forkjoin;
 
-import ssd.forkjoin.CountTask;
-
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.Future;

@@ -1,4 +1,4 @@
-package netty;
+package ssd.netty;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 import org.jboss.netty.buffer.ChannelBuffers;

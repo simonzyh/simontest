@@ -1,4 +1,4 @@
-package thrift;
+package ssd.thrift;
 
 import org.apache.thrift.TException;
 

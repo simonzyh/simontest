@@ -1,7 +1,5 @@
 package ssd.fastjson;
 
-import ssd.fastjson.User;
-
 import java.util.ArrayList;
 import java.util.List;
 

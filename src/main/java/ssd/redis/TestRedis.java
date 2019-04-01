@@ -1,4 +1,4 @@
-package redis;
+package ssd.redis;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Pipeline;

@@ -1,4 +1,4 @@
-package netty4;
+package ssd.netty4;
 
 
 import io.netty.bootstrap.ServerBootstrap;

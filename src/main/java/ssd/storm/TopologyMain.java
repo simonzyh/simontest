@@ -1,12 +1,13 @@
-package storm;
+package ssd.storm;
 
 import backtype.storm.Config;
 import backtype.storm.LocalCluster;
 import backtype.storm.topology.TopologyBuilder;
 import backtype.storm.tuple.Fields;
-import storm.bolts.WordCounter;
-import storm.bolts.WordNormalizer;
-import storm.spouts.WordReader;
+import ssd.storm.bolts.WordCounter;
+import ssd.storm.bolts.WordNormalizer;
+import ssd.storm.spouts.WordReader;
+
 
 public class TopologyMain {
     public static void main(String[] args) throws InterruptedException {

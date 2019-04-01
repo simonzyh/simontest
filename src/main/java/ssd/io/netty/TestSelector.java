@@ -1,4 +1,4 @@
-package io.netty;
+package ssd.io.netty;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

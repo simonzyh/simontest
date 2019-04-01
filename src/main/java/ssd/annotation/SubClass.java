@@ -1,7 +1,5 @@
 package ssd.annotation;
 
-import ssd.annotation.MtopApiAnnotation;
-
 /**
  * Created by yehua.zyh on 2016/4/13.
  */

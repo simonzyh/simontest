@@ -5,7 +5,7 @@
  *
  * @generated
  */
-package thrift;
+package ssd.thrift;
 
 import org.apache.thrift.TException;
 import org.apache.thrift.async.AsyncMethodCallback;

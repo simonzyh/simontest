@@ -1,4 +1,4 @@
-package proxy.cglib;
+package ssd.proxy.cglib;
 
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
@@ -15,7 +15,7 @@ public class MyCglibProxy implements MethodInterceptor {
     }
 
     /**
-     * ¸ù¾İclass¶ÔÏó´´½¨¸Ã¶ÔÏóµÄ´úÀí¶ÔÏó 1¡¢ÉèÖÃ¸¸Àà£»2¡¢ÉèÖÃ»Øµ÷ ±¾ÖÊ£º¶¯Ì¬´´½¨ÁËÒ»¸öclass¶ÔÏóµÄ×ÓÀà
+     * æ ¹æ®classå¯¹è±¡åˆ›å»ºè¯¥å¯¹è±¡çš„ä»£ç†å¯¹è±¡ 1ã€è®¾ç½®çˆ¶ç±»ï¼›2ã€è®¾ç½®å›è°ƒ æœ¬è´¨ï¼šåŠ¨æ€åˆ›å»ºäº†ä¸€ä¸ªclasså¯¹è±¡çš„å­ç±»
      *
      * @param
      * @return
@@ -27,10 +27,10 @@ public class MyCglibProxy implements MethodInterceptor {
     }*/
     public Object intercept(Object object, Method method, Object[] args,
                             MethodProxy methodProxy) throws Throwable {
-        System.out.println("µ÷ÓÃµÄ·½·¨ÊÇ£º" + method.getName());
-        // ÓÃ»§½øĞĞÅĞ¶Ï
-        if (!"ÕÅÈı".equals(name)) {
-            System.out.println("ÄãÃ»ÓĞÈ¨ÏŞ£¡");
+        System.out.println("è°ƒç”¨çš„æ–¹æ³•æ˜¯ï¼š" + method.getName());
+        // ç”¨æˆ·è¿›è¡Œåˆ¤æ–­
+        if (!"å¼ ä¸‰".equals(name)) {
+            System.out.println("ä½ æ²¡æœ‰æƒé™ï¼");
             return null;
         }
         Object result = methodProxy.invokeSuper(object, args);

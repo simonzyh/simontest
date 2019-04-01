@@ -1,4 +1,4 @@
-package schema;
+package ssd.schema;
 
 
 import org.springframework.context.ApplicationContext;
