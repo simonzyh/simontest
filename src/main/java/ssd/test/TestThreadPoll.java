@@ -6,7 +6,7 @@
  * @date 2014-6-27 上午10:58:58
  */
 
-package test;
+package ssd.test;
 
 import java.util.LinkedList;
 import java.util.concurrent.ArrayBlockingQueue;

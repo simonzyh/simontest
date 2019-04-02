@@ -1,4 +1,4 @@
-package test;
+package ssd.test;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

@@ -1,4 +1,4 @@
-package test;
+package ssd.test;
 
 import java.util.Date;
 

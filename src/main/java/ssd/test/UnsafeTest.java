@@ -1,4 +1,4 @@
-package test;
+package ssd.test;
 
 import sun.misc.Unsafe;
 import sun.nio.ch.DirectBuffer;

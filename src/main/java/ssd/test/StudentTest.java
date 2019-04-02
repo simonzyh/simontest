@@ -1,5 +1,7 @@
-package test;
+package ssd.test;
 
+
+import ssd.test.Student;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;

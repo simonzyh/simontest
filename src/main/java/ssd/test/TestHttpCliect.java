@@ -1,4 +1,4 @@
-package test;
+package ssd.test;
 
 import com.sun.jersey.client.apache.ApacheHttpClient;
 

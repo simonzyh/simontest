@@ -8,7 +8,7 @@
  */
 
 
-package test;
+package ssd.test;
 
 
 import com.google.common.collect.Maps;

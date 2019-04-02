@@ -1,4 +1,4 @@
-package test;
+package ssd.test;
 
 /**
  * Created by yehua.zyh on 2016/3/28.
