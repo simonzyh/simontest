@@ -20,23 +20,22 @@ public class SerializableTest {
         serializableModel.setParent(gen());
         serializableModel.setChlids(Lists.newArrayList(gen(), gen(), gen(), gen(), gen(), gen(), gen(), gen(), gen(), gen()));
 
-        System.out.println(JSON.toJSONString(serializableModel));
         JavaSerialize(serializableModel);
         jsonSerialize(serializableModel);
         portbuffSerialize(serializableModel);
-        System.out.println(JSON.toJSONString(serializableModel));
-
-
-        JavaSerialize(serializableModel);
-        jsonSerialize(serializableModel);
-        portbuffSerialize(serializableModel);
-        System.out.println(JSON.toJSONString(serializableModel));
+        System.out.println("111111111111111");
 
 
         JavaSerialize(serializableModel);
         jsonSerialize(serializableModel);
         portbuffSerialize(serializableModel);
-        System.out.println(JSON.toJSONString(serializableModel));
+        System.out.println("2222222222222222");
+
+
+        JavaSerialize(serializableModel);
+        jsonSerialize(serializableModel);
+        portbuffSerialize(serializableModel);
+        System.out.println("3333333333333333");
 
 
         JavaSerialize(serializableModel);
