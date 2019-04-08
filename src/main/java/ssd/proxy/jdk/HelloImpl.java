@@ -1,4 +1,4 @@
-package proxy.jdk;
+package ssd.proxy.jdk;
 
 public class HelloImpl implements Hello {
 
