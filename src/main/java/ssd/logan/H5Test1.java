@@ -8,14 +8,12 @@ import java.io.*;
 import java.util.*;
 
 public class H5Test1 {
-    static Map<String,Integer> code = new HashMap<>();
+    static Map<String, Integer> code = new HashMap<>();
 
     public static void main(String[] args) throws Exception {
-
-        List<String[]> datalist = getDate("/Users/zyh/Downloads/log/04-06-h5.log");
-        // datalist.addAll(getDate("/Users/zyh/Downloads/log/H5.gialen.com.log"));
-        Map<String, Integer> item = new HashMap();
-
+         List<String[]> datalist = getDate("/Users/zyh/Documents/h5412.txt");
+        //  datalist.addAll(getDate("/Users/zyh/Downloads/log/H5.gialen.com.log"));
+        int wx=0;
         Map<urlparse, Integer> an = new HashMap();
 
         Map<urlparse, PrintWriter> pws = new HashMap();
@@ -34,14 +32,11 @@ public class H5Test1 {
 
                 continue;
             }
-            if (urlname.equals(urlparse.详情页面)) {
+            if (urlname.equals(urlparse.首页)) {
                 //  System.out.println(path);
-                int i=0;
-                if(item.containsKey(path)){
-                    i=item.get(path);
-                }
-                i++;
-                item.put(path,i);
+                 if (data[6].contains("platform=8")) {
+                     wx++;
+                 }
 
             }
 
@@ -53,7 +48,7 @@ public class H5Test1 {
                 PrintWriter pw = new PrintWriter("/Users/zyh/Downloads/log/detail/" + urlname.name() + ".log");
                 pws.put(urlname, pw);
             }
-            pws.get(urlname).println(StringUtils.join(data," "));
+            pws.get(urlname).println(StringUtils.join(data, " "));
 
             an.put(urlname, num + 1);
 
@@ -75,31 +70,20 @@ public class H5Test1 {
             System.out.println(entry.getKey() + " " + entry.getValue());
         }
 
-        int pv=an.get(urlparse.榜单)+an.get(urlparse.热区页面)
-                +an.get(urlparse.首页)+an.get(urlparse.限时精选)
-                +an.get(urlparse.首页类目)+
+        int pv = an.get(urlparse.榜单) + an.get(urlparse.热区页面)
+                + an.get(urlparse.首页) + an.get(urlparse.限时精选)
+                + an.get(urlparse.首页类目) +
                 an.get(urlparse.详情页面)
-                +an.get(urlparse.二级类目页面)
-                +an.get(urlparse.精选)-2*an.get(urlparse.首页);
-        System.out.println("浏览量"+pv);
+                + an.get(urlparse.二级类目页面)
+                + an.get(urlparse.精选) - 2 * an.get(urlparse.首页);
+        System.out.println("浏览量" + pv);
 
-        System.out.println("加够"+(an.get(urlparse.添加购物车_点击)
-                +an.get(urlparse.立即购买_点击)));
+        System.out.println("加够" + (an.get(urlparse.添加购物车_点击)
+                + an.get(urlparse.立即购买_点击)));
         System.out.println(JSON.toJSONString(code));
-
-        //====
-        List<Map.Entry<String, Integer>> itemList = new ArrayList();
-        for (Map.Entry<String, Integer> entry : item.entrySet()) {
-            itemList.add(entry);
-        }
-
-        itemList.sort(Comparator.comparingInt(Map.Entry::getValue)
+        System.out.println(wx);
 
 
-        );
-        for (Map.Entry<String, Integer> entry : itemList) {
-           // System.out.println(entry.getKey() + " " + entry.getValue());
-        }
 
 
     }
@@ -110,35 +94,36 @@ public class H5Test1 {
         List<String[]> dataList = new ArrayList<>();
         String line = null;
         while ((line = br.readLine()) != null) {
-            try{
-                if(StringUtils.isBlank(line)){
+            try {
+                if (StringUtils.isBlank(line)) {
                     continue;
                 }
                 //if(!line.contains("04/Apr/2019")){
-                //    continue;
-               // }
-            String[] data = line.split("\\s+");
-            String path = data[6].split("\\?")[0];
-            int num=0;
-            if(code.containsKey(data[8])){
-                num=code.get(data[8]);
-            }
-            num++;
-            code.put(data[8],num);
-            if (path.startsWith("/cmsstatic") || path.startsWith("/static")) {
-                continue;
-            }
-            urlparse urlname = parseUrl(path);
-            if (null == urlname) {
-                System.out.println(path);
-                continue;
-            }
-            dataList.add(data);
-        }catch (Exception e){
+                //   continue;
+                //}
+                String[] data = line.split("\\s+");
+                String path = data[6].split("\\?")[0];
+                int num = 0;
+                if (code.containsKey(data[8])) {
+                    num = code.get(data[8]);
+                }
+                num++;
+                code.put(data[8], num);
+                if (path.startsWith("/cmsstatic") || path.startsWith("/static")) {
+                    continue;
+                }
+                urlparse urlname = parseUrl(path);
+                if (null == urlname) {
+                    System.out.println(path);
+                    continue;
+                }
+                dataList.add(data);
+            } catch (Exception e) {
                 e.getMessage();
                 System.out.println(line);
                 throw e;
-            }}
+            }
+        }
         return dataList;
     }
 
@@ -201,8 +186,10 @@ enum urlparse {
 
     购物车点击结算生成订单_点击("点击", "/m/cart/tocheckout", null),
 
-    立即购买_点击("点击", "/m/buynow/add", null);
+    立即购买_点击("点击", "/m/buynow/add", null),
+    凑单加商品("点击", "/intf/user/order/combineOrder", null),
 
+    凑单("页面", "/m/product/piece", null);
 
     urlparse(String type, String urlpattern, List<String> exs) {
         this.urlpattern = urlpattern;

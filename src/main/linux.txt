@@ -1,5 +1,20 @@
 cat q.txt|awk -F"|" '{print $1}' | awk -F"."   '{a[$1]++}END{for(i in a){print i,a[i] | "sort -n -k 1"}}'
 
+grep 26/Jun/2019 jiaomigo.gialen.com.log |grep compeleteNew|awk '{sum += $8};END {print NR,sum/NR}'
+
+nginx 统计qps
+grep '18/Oct/2019:12:25' apigw.gialen.com.log |awk '{a[$1]+=1}END{for (i in a){print i,a[i]|"sort -n -k 2"}}'
+
+
+grep '2019' images.gialen.com.log|awk  '{print $7}' |awk -F'.' '{a[$2]+=1}END{for (i in a){print i,a[i]|"sort -n -k 2"}}'
+
+nginx 流量
+grep '21/Oct/2019:21:53:40' apigw.gialen.com.log |awk '{sum+=$8} END{print sum,NR}'
+
+cat aio.log-2017-04-19-23.log|grep 'api/pageTime' |awk -F ","
+'{for(i=2;i<=NF;i++) printf("%s,",$i); print("")}'
+|awk '{a[$0]+=1}END{for(i in a) {printf "%s %d\n",substr(i,0,16),a[i]}}'
+
 
 #!/bin/sh
 ps aux | grep distribution-admin-web | awk '{print $2}' | xargs kill -9

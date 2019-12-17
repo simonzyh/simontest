@@ -5,8 +5,6 @@ import com.alibaba.fastjson.JSON;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import org.apache.commons.httpclient.util.DateUtil;
-import ssd.netty4.model.GjMessage;
-import ssd.netty4.model.GjMessageHead;
 
 import java.util.Date;
 
@@ -19,25 +17,7 @@ public class HelloClientHandler extends SimpleChannelInboundHandler<String> {
     protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
 
         System.out.println(DateUtil.formatDate(new Date(), "HH:mm:ss SSS") + "channelRead0 Server say : " + msg);
-        if (!msg.contains("{")) {
-            return;
-        }
-        GjMessage request = JSON.parseObject(msg, GjMessage.class);
-        GjMessageHead headj = request.getHead();
-        if (headj.getMessageType() != 0) {
-            return;
-        }
-        System.out.println("收到请求:" + msg);
-        //head
-        GjMessage response = new GjMessage();
-        response.setBody(JSON.toJSONString("12121212121212121"));
-        GjMessageHead head = new GjMessageHead();
-        head.setMessageId(headj.getMessageId());
-        head.setAppKey("hnhys");
-        head.setMessageType(1);
-        head.setSign(conVertTextToMD5("hnhys" + response.getBody()));
-        response.setHead(head);
-        ctx.writeAndFlush(JSON.toJSONString(response) + "\n");
+        System.out.println(msg);
 
     }
 

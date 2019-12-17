@@ -39,44 +39,15 @@ public class CacheTest {
     }
 
     public static void main(String[] args) throws Exception {
-        List l = get("", new Function<String, List<String>>() {
-            /**
-             * Applies this function to the given argument.
-             *
-             * @param s the function argument
-             * @return the function result
-             */
-            @Override
-            public List<String> apply(String s) {
-                return null;
-            }
-        });
+          Cache<String,String> rushProductCache= CacheBuilder.newBuilder()
+                .maximumSize(1000)
+                .expireAfterWrite(10, TimeUnit.SECONDS)
+                .build();
 
-        System.out.println("1" + "-" + cache.get("1"));
+          System.out.println(rushProductCache.getIfPresent("qwe"));
+          rushProductCache.put("qwe","qqqqqqq");
+        System.out.println(rushProductCache.getIfPresent("qwe"));
 
-        for (int i = 0; i < 3; i++) {
-            new Thread() {
-
-                @Override
-                public void run() {
-                    try {
-                        while (true) {
-                            int j = 0;
-                        }
-
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            }.start();
-
-
-        }
-
-        System.out.println(Integer.parseInt("000"));
-        String userid = "20881212121212199";
-        int mUserId = Integer.parseInt(userid.substring(userid.length() - 2));
-        System.out.println(getVirtualUserIdFromUserId("2088302211026005"));
     }
 
 

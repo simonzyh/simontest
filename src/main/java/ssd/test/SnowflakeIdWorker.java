@@ -1,5 +1,8 @@
 package ssd.test;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class SnowflakeIdWorker {
 
     /**
@@ -42,6 +45,8 @@ public class SnowflakeIdWorker {
      * 序列在id中占的位数
      */
     private final long sequenceBits = 12L;
+
+
 
     /**
      * 机器ID向左移12位
@@ -109,12 +114,15 @@ public class SnowflakeIdWorker {
      */
     public static void main(String[] args) {
         SnowflakeIdWorker idWorker = new SnowflakeIdWorker(1, 1);
-        long startTime = System.nanoTime();
-        long id = idWorker.nextId();
+        long startTime = System.currentTimeMillis();
+              long id = idWorker.nextId();
+
+
+
         System.out.println(id);
 
 
-    }
+}
 
     /**
      * 获得下一个ID (该方法是线程安全的)
@@ -123,8 +131,7 @@ public class SnowflakeIdWorker {
      */
     public synchronized long nextId() {
         long timestamp = timeGen();
-
-        // 如果当前时间小于上一次ID生成的时间戳，说明系统时钟回退过这个时候应当抛出异常
+         // 如果当前时间小于上一次ID生成的时间戳，说明系统时钟回退过这个时候应当抛出异常
         if (timestamp < lastTimestamp) {
             throw new RuntimeException(String.format("Clock moved backwards.  Refusing to generate id for %d milliseconds", lastTimestamp - timestamp));
         }
@@ -152,21 +159,11 @@ public class SnowflakeIdWorker {
         // 为啥时间戳减法向左移动22 位 因为  5位datacenterid
         // 为啥 datCenterID向左移动17位 因为 前面有5位workid  还有12位序列号 就是17位
         //为啥 workerId向左移动12位 因为 前面有12位序列号 就是12位
-        long l1 = ((timestamp - twepoch) << timestampLeftShift);
-        long l2 = dataCenterId << dataCenterIdShift;
-        long l3 = workerId << workerIdShift;
-        long l4 = sequence;
-        System.out.println((timestamp - twepoch) + " " + dataCenterId + " " + workerId + " " + sequence);
-
-        System.out.println(l1 + " " + l2 + " " + l3 + " " + l4);
-        System.out.println(Long.toBinaryString(l1).length());
-        System.out.println(Long.toBinaryString(l2).length());
-        System.out.println(Long.toBinaryString(l3).length());
-        System.out.println(Long.toBinaryString(l4).length());
-
-        System.out.println(l1 | l2);
-        System.out.println(l1 | l2 | l3);
-        System.out.println(l1 | l2 | l3 | l4);
+         System.out.println((timestamp - twepoch));
+        System.out.println(dataCenterId);
+        System.out.println(workerId);
+        System.out.println(sequence);
+//     * 0 - 0000000000 0000000000 0000000000 0000000000 0 - 00000 - 00000 - 000000000000
 
         return ((timestamp - twepoch) << timestampLeftShift) //
                 | (dataCenterId << dataCenterIdShift) //

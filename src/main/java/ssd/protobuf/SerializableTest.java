@@ -9,6 +9,7 @@ import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.math.BigDecimal;
 import java.util.Random;
 import java.util.UUID;
 
@@ -102,10 +103,9 @@ public class SerializableTest {
     static SerializableModel gen() {
         SerializableModel model = new SerializableModel();
         model.setId(random.nextInt());
-        model.setName(UUID.randomUUID().toString());
+        model.setName(null);
         return model;
 
     }
-
 
 }

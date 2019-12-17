@@ -12,7 +12,7 @@ public class HelloServer {
     /**
      * 服务端监听的端口地址
      */
-    private static final int portNumber = 7878;
+    private static final int portNumber = 7879;
 
     public static void main(String[] args) throws InterruptedException {
         EventLoopGroup bossGroup = new NioEventLoopGroup();

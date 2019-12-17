@@ -1,13 +1,11 @@
 package ssd.netty4;
 
 
-import io.netty.channel.ChannelHandler;
-import io.netty.channel.ChannelInitializer;
+ import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.codec.DelimiterBasedFrameDecoder;
 import io.netty.handler.codec.Delimiters;
-import ssd.io.netty.handler.HelloServerHandler;
 
 public class HelloServerInitializer extends ChannelInitializer<SocketChannel> {
 
@@ -23,6 +21,6 @@ public class HelloServerInitializer extends ChannelInitializer<SocketChannel> {
         pipeline.addLast("encoder", new TestStringEncoder());
 
         // 自己的逻辑Handler
-        pipeline.addLast("handler", (ChannelHandler) new HelloServerHandler());
+        pipeline.addLast("handler",  new HelloServerHandler());
     }
 }

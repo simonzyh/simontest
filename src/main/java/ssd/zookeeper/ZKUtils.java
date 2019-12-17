@@ -1,5 +1,6 @@
 package ssd.zookeeper;
 
+import com.alibaba.fastjson.JSON;
 import org.apache.zookeeper.*;
 import org.apache.zookeeper.data.Stat;
 import org.slf4j.Logger;
@@ -7,6 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 
@@ -21,7 +23,7 @@ public class ZKUtils {
 
     private static ZooKeeper zk = null;
     private static String rootPath = "/mmp";
-    public final static String CONFIGPATH = rootPath + "/CONFIG";//?????????????????????????????  ???????????????????????????????
+    public final static String CONFIGPATH = rootPath + "/CONFIG";
 
     private static Logger log = LoggerFactory.getLogger(ZKUtils.class);
     private static CountDownLatch latch = new CountDownLatch(1);
@@ -31,22 +33,21 @@ public class ZKUtils {
     }
 
     public static void connection() {
-        String connections = "192.168.38.38:2181";//props.getProperty("zk.server");
+        String connections = "172.30.2.173:2181,172.30.2.173:2182,172.30.2.173:2183";//props.getProperty("zk.server");
 
-        log.info("???????? " + connections);
 
         BaseWatcher watcher = new BaseWatcher();
         try {
             zk = new ZooKeeper(connections, 20, watcher);
         } catch (IOException e) {
-            log.error("????????????", e);
+            log.error(" ", e);
         }
+
 
     }
 
     /**
-     * ???zk  ????????????????
-     *
+      *
      * @return
      */
     public static ZooKeeper getInstance() {
@@ -62,48 +63,34 @@ public class ZKUtils {
     }
 
     public static void main(String[] args) throws Exception {
+        connection();
+        ZooKeeper zk= getInstance();
+        Thread.sleep(100000);
 
-        Map<String, Thread> map = new HashMap<String, Thread>();
-        Thread t = new Thread() {
-            public void run() {
-                System.out.println(123);
-            }
-        };
-        t.start();
-        map.put("123", t);
-        Thread.sleep(1000 * 5);
-        Thread t1 = map.get("123");
-        System.out.println(t1.isInterrupted());
-        t1.interrupt();
-        System.out.println(t1.isInterrupted());
-        Thread.sleep(1000 * 5);
     }
 
     /**
-     * ????ZK????????
-     * ????????? ?????????????
+
      *
      * @author Yehua.zhang
      */
     private static class BaseWatcher implements Watcher {
         public void process(WatchedEvent event) {
-            log.info("zk?????????" + event.getPath() + " " + event.getType());
-            //???????????????????  zk????????????
-            if (event.getState() == Event.KeeperState.Disconnected) {
-                log.info("zk??????  ");
+            log.info("Watcher" + event.getPath() + " " + event.getType());
+             if (event.getState() == Event.KeeperState.Disconnected) {
+                log.info("zk断开  ");
                 latch.countDown();
                 latch = new CountDownLatch(1);
+                 connection();
 
             }
-            //?????????
-            else if (event.getState() == Event.KeeperState.Expired) {
-                log.info("zk ?????? ");
+             else if (event.getState() == Event.KeeperState.Expired) {
+                log.info("zk 过期 ");
 
                 connection();
             }
-            //?????????
-            else if (event.getState() == Event.KeeperState.SyncConnected) {
-                log.info("zk ?????? ");
+             else if (event.getState() == Event.KeeperState.SyncConnected) {
+                log.info("zk 连接上 ");
                 try {
                     Stat s = zk.exists(rootPath, false);
                     if (s == null) {
@@ -116,17 +103,16 @@ public class ZKUtils {
 
                     latch.countDown();
 
-                    log.info("ZK????????  ???? " + zk.getState() + " " + path);
+                    log.info("ZK  " + zk.getState() + " " + path);
 
 
-                    //?????????????????????
-                    ZKUtils.getInstance().exists(path, new Watcher() {
+                     ZKUtils.getInstance().exists("/mmp", new Watcher() {
 
                         public void process(WatchedEvent event) {
-                            System.out.println("??????????????? " + event.getType() + " " + event.getPath());
-                            try {
+                             try {
+                                 log.info("Watcher /mmp" + event.getPath() + " " + event.getType());
 
-                                System.out.println(new String(ZKUtils.getInstance().getData(event.getPath(), this, new Stat())));
+                                System.out.println(new String(ZKUtils.getInstance().getData(event.getPath(), false,new Stat())));
 
                             } catch (KeeperException e) {
 
@@ -145,7 +131,7 @@ public class ZKUtils {
 
 
             }
-            zk.register(new BaseWatcher());
+            //zk.register(new BaseWatcher());
         }
 
 
