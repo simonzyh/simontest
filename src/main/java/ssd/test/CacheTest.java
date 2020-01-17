@@ -3,7 +3,6 @@ package ssd.test;
 import com.google.common.cache.*;
 import org.apache.commons.lang.StringUtils;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
@@ -11,6 +10,7 @@ import java.util.function.Function;
  * Created by yehua.zyh on 2017/5/4.
  */
 public class CacheTest {
+    static Boolean b = Boolean.TRUE;
     static LoadingCache<String, String> cache = CacheBuilder.newBuilder().
             maximumSize(5)
             .refreshAfterWrite(8, TimeUnit.SECONDS)
@@ -26,6 +26,10 @@ public class CacheTest {
 
                 @Override
                 public String load(String s) throws Exception {
+                    if (!b) {
+                        throw new RuntimeException("test exception");
+                    }
+                    b = false;
                     String v = System.currentTimeMillis() + "";
                     Thread.sleep(100);
                     System.out.println("加载" + s + "-" + v);
@@ -39,14 +43,10 @@ public class CacheTest {
     }
 
     public static void main(String[] args) throws Exception {
-          Cache<String,String> rushProductCache= CacheBuilder.newBuilder()
-                .maximumSize(1000)
-                .expireAfterWrite(10, TimeUnit.SECONDS)
-                .build();
-
-          System.out.println(rushProductCache.getIfPresent("qwe"));
-          rushProductCache.put("qwe","qqqqqqq");
-        System.out.println(rushProductCache.getIfPresent("qwe"));
+        for (int i = 0; i < 100; i++) {
+            Thread.sleep(5000);
+            System.out.println(cache.get("test"));
+        }
 
     }
 
