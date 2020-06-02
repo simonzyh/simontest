@@ -28,7 +28,7 @@ public class GpQueryTest {
         Statement statement = gpCon.createStatement();
         List<String> sqls = queryTableSchema();
         for (String s : sqls) {
-           // statement.execute(s);
+            // statement.execute(s);
             System.out.println(s);
         }
 
@@ -64,7 +64,7 @@ public class GpQueryTest {
 
                 createTableSql += ",";
             }
-           //createTableSql += " dt varchar(10) );";
+            //createTableSql += " dt varchar(10) );";
             createTableSql += "CONSTRAINT \"" + table_name + "key\" PRIMARY KEY (\"" + pk + "\")) distributed by (" + pk + ") ;";
             res.add(createTableSql);
         }

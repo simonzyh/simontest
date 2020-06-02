@@ -493,13 +493,7 @@
             <artifactId>rocketmq-client</artifactId>
             <version>4.1.0-incubating</version>
         </dependency>
-        <dependency>
-            <groupId>oracle</groupId>
-            <artifactId>oracle-jdbc</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>/Users/zyh/Downloads/ojdbc8.jar</systemPath>
-        </dependency>
+
         <dependency>
             <groupId>com.alipay.sdk</groupId>
             <artifactId>alipay-sdk-java</artifactId>
@@ -514,6 +508,11 @@
             <groupId>org.greenplum</groupId>
             <artifactId>greenplum</artifactId>
             <version>1.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>net.coobird</groupId>
+            <artifactId>thumbnailator</artifactId>
+            <version>0.4.8</version>
         </dependency>
     </dependencies>
 

@@ -25,14 +25,14 @@ public class GpQueryTest1 {
 
     public static void main(String[] args) throws Exception {
         getGreenplumConnection();
-        queryTableSchema();
-    }
+        同步表结构("gialen_settlement","commission_settlement_detail");
+     }
 
-    private static List<String> queryTableSchema() throws Exception {
+    private static List<String> 同步表结构(String dbName,String tableName) throws Exception {
         List<String> res = new ArrayList<>();
         Statement statement = con21.createStatement();
         Statement statement1 = con21.createStatement();
-        ResultSet resultSet = statement.executeQuery("select TABLE_SCHEMA,TABLE_NAME from information_schema.TABLES where TABLE_SCHEMA    in ('gialen_settlement')");
+        ResultSet resultSet = statement.executeQuery("select TABLE_SCHEMA,TABLE_NAME from information_schema.TABLES where TABLE_SCHEMA    in ('"+dbName+"') and TABLE_NAME ='"+tableName+"'");
 
         while (resultSet.next()) {
             String insert = "insert into   gp_sync_tableinfo(databases_name,table_name,sync_type,sync_column) values (";
