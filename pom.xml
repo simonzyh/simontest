@@ -36,7 +36,7 @@
         <jackson.version>1.8.2</jackson.version>
         <slf4j.version>1.6.1</slf4j.version>
         <selenium.version>2.0rc3</selenium.version>
-        <jdbc.driver.version>5.1.15</jdbc.driver.version>
+        <jdbc.driver.version>8.0.16</jdbc.driver.version>
         <sql.version>1.2.4</sql.version>
         <quartz.version>1.8.5</quartz.version>
         <jersey.version>1.8</jersey.version>
