@@ -53,7 +53,7 @@
         <dozer.version>5.3.2</dozer.version>
         <dom4j.version>1.6.1</dom4j.version>
         <velocity.version>1.6.3</velocity.version>
-        <junit.version>4.8.2</junit.version>
+        <junit.version>4.13.1</junit.version>
         <joda.version>2.1</joda.version>
         <commons-codec.version>1.5</commons-codec.version>
         <quartz.version>1.8.5</quartz.version>
